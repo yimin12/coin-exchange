@@ -1,0 +1,15 @@
+
+.idea/
+.web/
+.tmp/
+.node_modules/
+node_modules
+.DS_Store/
+.DS_Store
+src/.DS_Store
+*/.DS_Store
+web/
+web
+*.zip
+
+web.zip

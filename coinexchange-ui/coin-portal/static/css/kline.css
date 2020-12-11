@@ -1,0 +1,1260 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+  background-color: #1a1f28;
+}
+
+#chart_container {
+	cursor: default;
+	font-family: arial,sans;
+	font-size: 12px;
+	height: 100%;
+	position: relative;
+	visibility: hidden;
+	width: 100%;
+}
+
+#chart_container div,#chart_container ul,#chart_container form {
+	margin: 0;
+	padding: 0
+}
+
+#chart_container a:hover {
+	text-decoration: none
+}
+
+#chart_container ul {
+	list-style: none;
+	border: 0;
+	margin: 0;
+	padding: 0
+}
+
+#chart_container button {
+	cursor: pointer
+}
+
+#chart_dom_elem_cache {
+	*font-weight: bold;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1
+}
+
+#chart_toolbar {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	*font-weight: bold;
+	height: 29px;
+	position: absolute;
+	z-index: 3
+}
+
+#chart_container #chart_toolbar {
+	background-color: #1a1f28;
+	border-bottom-color: #2b2929
+}
+
+#chart_container .chart_toolbar_sep {
+	float: left;
+	height: 100%;
+	width: 16px
+}
+
+#chart_container .chart_toolbar_minisep {
+	float: left;
+	height: 100%;
+	width: 4px
+}
+
+#chart_container .chart_dropdown {
+	display: inline-block;
+	float: left;
+	position: relative;
+	z-index: 100
+}
+
+#chart_container .chart_dropdown_t {
+	background-origin: content-box;
+	background-repeat: no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: 0;
+	margin-top: 3px;
+	padding-right: 10px;
+	z-index: 101;
+	position: relative
+}
+
+#chart_container .chart_dropdown_t a {
+	display: inline-block;
+	padding: 3px 12px 5px 10px
+}
+
+#chart_container .chart_dropdown_data {
+	border-width: 1px;
+	border-style: solid;
+	display: none;
+	position: absolute;
+	padding: 6px 8px 6px 8px;
+	margin-top: -1px;
+	z-index: 100
+}
+
+#chart_container .chart_dropdown_data table {
+	border-collapse: collapse;
+	font-weight: normal;
+	white-space: nowrap
+}
+
+#chart_container .chart_dropdown_data td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding: 8px 6px;
+	vertical-align: top
+}
+
+.market_chooser .chart_dropdown_data {
+	width: 370px
+}
+
+.market_chooser .chart_dropdown_data td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding: .5px 6px!important;
+	vertical-align: top;
+	line-height: 24px
+}
+
+.market_chooser li {
+	float: left;
+	width: 80px;
+	height: 24px;
+	line-height: 24px
+}
+
+#chart_container .chart_dropdown_data td.marketName_ a {
+	color: #fff
+}
+
+#chart_container .chart_dropdown_data table tr:last-child td {
+	border-bottom: 0
+}
+
+#chart_container .chart_dropdown_data li {
+	white-space: nowrap;
+	display: inline-block
+}
+
+#chart_container .chart_dropdown_data a {
+	text-decoration: none;
+	cursor: pointer;
+	padding: 5px 6px 5px 6px
+}
+
+#chart_container .chart_dropdown-hover.chart_dropdown_data {
+	display: block
+}
+
+#chart_dropdown_symbols .chart_dropdown_data td {
+	padding: 8px 6px 0 6px
+}
+
+#chart_dropdown_symbols .chart_dropdown_data li {
+	display: block;
+	height: 26px
+}
+
+#chart_dropdown_symbols .chart_dropdown_data a {
+	cursor: pointer
+}
+
+#chart_dropdown_themes .chart_dropdown_data td:first-child {
+	padding: 6px 1px 7px 6px
+}
+
+#chart_container .chart_dropdown_t {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAJn2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICAgICAgICAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iCiAgICAgICAgICAgIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiCiAgICAgICAgICAgIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyI+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj42PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT42NTUzNTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+NTwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2UvcG5nPC9kYzpmb3JtYXQ+CiAgICAgICAgIDx4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ+eG1wLmRpZDoxZjBjZTZmNC1lNGU1LWM4NDctYjI5OC00Y2Q2NGJjMGRjMDY8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKTwvc3RFdnQ6c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmNoYW5nZWQ+Lzwvc3RFdnQ6Y2hhbmdlZD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNC0xMi0wM1QxNzo1Njo1MiswODowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0Omluc3RhbmNlSUQ+eG1wLmlpZDozNjIzYmJlYi1iNGU2LWNhNDktOTRjZi05MTIyY2Q1Y2NiZTk8L3N0RXZ0Omluc3RhbmNlSUQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDphY3Rpb24+c2F2ZWQ8L3N0RXZ0OmFjdGlvbj4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC94bXBNTTpIaXN0b3J5PgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjM2MjNiYmViLWI0ZTYtY2E0OS05NGNmLTkxMjJjZDVjY2JlOTwveG1wTU06SW5zdGFuY2VJRD4KICAgICAgICAgPHhtcE1NOkRvY3VtZW50SUQ+eG1wLmRpZDo2QzE5MkVEOTY1N0UxMUU0QUUwMkE5RkYyNDYyQTBBODwveG1wTU06RG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkRlcml2ZWRGcm9tIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgPHN0UmVmOmluc3RhbmNlSUQ+eG1wLmlpZDo4MzE3OTEwZi1kOTE5LTY4NDAtYWVhOS0zNzI5NWE2NGI1NmU8L3N0UmVmOmluc3RhbmNlSUQ+CiAgICAgICAgICAgIDxzdFJlZjpkb2N1bWVudElEPnhtcC5kaWQ6MWYwY2U2ZjQtZTRlNS1jODQ3LWIyOTgtNGNkNjRiYzBkYzA2PC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wOk1ldGFkYXRhRGF0ZT4yMDE0LTEyLTAzVDE3OjU2OjUyKzA4OjAwPC94bXA6TWV0YWRhdGFEYXRlPgogICAgICAgICA8eG1wOkNyZWF0ZURhdGU+MjAxNC0xMi0wM1QxNzo1NjoyOCswODowMDwveG1wOkNyZWF0ZURhdGU+CiAgICAgICAgIDx4bXA6TW9kaWZ5RGF0ZT4yMDE0LTEyLTAzVDE3OjU2OjUyKzA4OjAwPC94bXA6TW9kaWZ5RGF0ZT4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDxwaG90b3Nob3A6Q29sb3JNb2RlPjM8L3Bob3Rvc2hvcDpDb2xvck1vZGU+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqC9xe+AAAAWUlEQVQIHWO8cOHCFgYGBm8gRgZbmRgZGXOBIj+QRH8wMTHlMenr69////9/J0wCxNbT07vHCBK4f/8+x8ePH6+B2Pz8/FqKioo/mEAcEAOoEmRkHogNEgMA0qYfb8X3frQAAAAASUVORK5CYII=");
+	background-position: right 9px;
+	border-color: #1a1f28;
+	color: #e5e5e5
+}
+
+#chart_container .chart_dropdown-hover.chart_dropdown_t {
+	background-color: #1a1f28;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADcWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjFmMGNlNmY0LWU0ZTUtYzg0Ny1iMjk4LTRjZDY0YmMwZGMwNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2QzE5MkVEOTY1N0UxMUU0QUUwMkE5RkYyNDYyQTBBOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2QzE5MkVEODY1N0UxMUU0QUUwMkE5RkYyNDYyQTBBOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODMxNzkxMGYtZDkxOS02ODQwLWFlYTktMzcyOTVhNjRiNTZlIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjFmMGNlNmY0LWU0ZTUtYzg0Ny1iMjk4LTRjZDY0YmMwZGMwNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkyQgrUAAABCSURBVBhXY3QJS2aAAh8g/g/EW0EcJhABBBxAPAmIJ0PZcIkKIFaEYhAbLKEExOUgDhSA2IogCZARYO1QAGQzTAYAPbkH1E4jJr8AAAAASUVORK5CYII=");
+	background-position: right 8px;
+	border-color: #606060;
+	color: #fff
+}
+
+#chart_container .chart_dropdown_data {
+	background-color: rgba(26, 31, 40, 0.8);
+	border-color: #606060
+}
+
+#chart_container .chart_dropdown_data td {
+	border-bottom-color: #2b2929;
+	color: #e5e5e5
+}
+
+#chart_container .chart_dropdown_data li a {
+	color: #7392ff
+}
+
+#chart_container .chart_dropdown_data li a:hover {
+	background-color: #444
+}
+
+#chart_container .chart_dropdown_data li a.selected {
+	color: #ffac00
+}
+
+#chart_container .chart_toolbar_label {
+	cursor: default;
+	display: inline-block;
+	float: left;
+	padding: 7px 4px
+}
+
+#chart_container .chart_toolbar_label {
+	border-color: #232323;
+	color: #e5e5e5
+}
+
+#chart_container .chart_toolbar_button {
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	float: left;
+	margin: 3px 2px;
+	padding: 3px 10px;
+	position: relative;
+	z-index: 100
+}
+
+#chart_container .chart_toolbar_button {
+	border-color: #2b2929;
+	color: #e5e5e5
+}
+
+#chart_container .chart_toolbar_button:hover {
+	background-color: #383838;
+	border-color: #606060;
+	color: #fff
+}
+
+#chart_container .chart_toolbar_button.selected {
+	background-color: #383838;
+	border-color: #606060;
+	color: #ffac00
+}
+
+#chart_container .chart_toolbar_button.selected:hover {
+	background-color: #474747;
+	border-color: #808080;
+	color: #ffac00
+}
+
+#chart_container .chart_toolbar_tabgroup {
+	float: left
+}
+
+#chart_container .chart_toolbar_tabgroup li {
+	display: inline-block;
+	padding: 4px 0;
+	margin: 3px 0
+}
+
+#chart_container .chart_toolbar_tabgroup li a {
+	cursor: pointer;
+	padding: 4px 4px
+}
+
+#chart_container .chart_toolbar_tabgroup li a:hover {
+	text-decoration: none
+}
+
+#chart_container .chart_toolbar_tabgroup li a {
+	color: #7392ff
+}
+
+#chart_container .chart_toolbar_tabgroup li a:hover {
+	background-color: #383838
+}
+
+#chart_container .chart_toolbar_tabgroup li a.selected {
+	color: #ffac00
+}
+
+#chart_toolbar_periods_horz {
+	display: inline-block;
+	float: left;
+	position: relative;
+	z-index: 100
+}
+
+#chart_toolbar_periods_vert {
+	float: left
+}
+
+#chart_container a.chart_icon {
+	border-width: 2px;
+	border-style: solid;
+	height: 16px;
+	padding: 0;
+	width: 16px;
+	position: relative;
+	border-color: #000
+}
+
+#chart_container a.chart_icon:after,#chart_container a.chart_icon:before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	left: 0
+}
+
+#chart_container a.chart_icon:after {
+	top: 0
+}
+
+#chart_container a.chart_icon:before {
+	bottom: 0
+}
+
+#chart_container a.chart_icon.chart_icon_theme_dark:after {
+	top: 0;
+	background-color: #de211d
+}
+
+#chart_container a.chart_icon.chart_icon_theme_dark:before {
+	bottom: 0;
+	background-color: #3dc18e
+}
+
+#chart_container a.chart_icon.chart_icon_theme_light:after {
+	top: 0;
+	background-color: #3dc18e
+}
+
+#chart_container a.chart_icon.chart_icon_theme_light:before {
+	bottom: 0;
+	background-color: #de211d
+}
+
+#chart_container a.chart_icon:hover {
+	border-color: #fff
+}
+
+#chart_container a.chart_icon.selected {
+	border-color: #fff
+}
+
+#chart_container .chart_dropdown_data a.chart_icon {
+	display: inline-block;
+	magin: 0 6px 0 6px
+}
+
+#chart_container a.chart_icon_theme_dark,#chart_container .chart_dropdown_data li a.chart_icon_theme_dark:hover {
+	background-color: #000
+}
+
+#chart_container a.chart_icon_theme_light,#chart_container .chart_dropdown_data li a.chart_icon_theme_light:hover {
+	background-color: #fff
+}
+
+#chart_container #chart_toolbar_theme {
+	float: left;
+	padding: 0 8px
+}
+
+#chart_container #chart_toolbar_theme a.chart_icon {
+	cursor: pointer;
+	float: left;
+	margin: 6px 4px
+}
+
+#chart_container #chart_select_theme td:last-child {
+	padding: 6px 6px 0 8px
+}
+
+#chart_container #chart_select_theme li {
+	padding: 0 4px 0 4px
+}
+
+#chart_container #chart_updated_time {
+	float: right;
+	margin: 4px 3px;
+	padding: 3px 10px
+}
+
+#chart_container #chart_updated_time {
+	color: #e5e5e5;
+	display: none
+}
+
+#chart_toolpanel {
+	border-right-width: 1px;
+	border-right-style: solid;
+	display: none;
+	position: absolute;
+	width: 32px;
+	z-index: 2
+}
+
+#chart_toolpanel .chart_toolpanel_separator {
+	position: relative;
+	height: 4px
+}
+
+#chart_toolpanel .chart_toolpanel_button {
+	position: relative;
+	z-index: 100
+}
+
+#chart_toolpanel .chart_toolpanel_icon {
+	background-origin: content-box;
+	background-repeat: no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	cursor: pointer;
+	height: 24px;
+	margin: 1px 4px 1px 4px;
+	padding: 3px;
+	position: relative;
+	width: 24px;
+	z-index: 101
+}
+
+#chart_toolpanel .chart_toolpanel_tip {
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: solid;
+	display: none;
+	*font-weight: bold;
+	position: absolute;
+	padding: 3px 6px 4px 6px;
+	margin-left: 36px;
+	margin-top: -25px;
+	white-space: nowrap;
+	z-index: 100
+}
+
+#chart_toolpanel .chart_toolpanel_button:hover .chart_toolpanel_tip {
+	display: block
+}
+
+#chart_container #chart_toolpanel {
+	background-color: #1a1f28;
+	border-right-color: #2b2929;
+	z-index: 2
+}
+
+#chart_container .chart_toolpanel_icon {
+	background-color: #1a1f28;
+	border-color: #1a1f28
+}
+
+#chart_container .chart_toolpanel_button:hover .chart_toolpanel_icon {
+	background-color: #2b2929;
+	border-color: #666
+}
+
+#chart_container .chart_toolpanel_button.selected .chart_toolpanel_icon {
+	background-color: #080808;
+	border-color: #666
+}
+
+#chart_container .chart_toolpanel_tip {
+	background-color: #ffac00;
+	border-color: #ffac00;
+	color: #1a1f28
+}
+
+#chart_container #chart_toolpanel .chart_toolpanel_button .chart_toolpanel_icon {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAFACAYAAAC1CvwiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjBjZTZmNC1lNGU1LWM4NDctYjI5OC00Y2Q2NGJjMGRjMDYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0EwQTE5MkI4MTFEMTFFNEI4Njg4OEVFQzVGMTEyOTIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0EwQTE5MkE4MTFEMTFFNEI4Njg4OEVFQzVGMTEyOTIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjYzNEUzRUIyODExOTExRTRBNkJDQzhDODM5MEQxQTkwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjYzNEUzRUIzODExOTExRTRBNkJDQzhDODM5MEQxQTkwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VsD84AAABMxJREFUeNrsXEloFEEU7QztBgoKkmgueogajSQRBEEQJ3jITVDUgxL1YoggHlSU6MHlKkEQ3FFREEEviogexJlTDqIxcQl60Is4oujFDVFhfN+p1kqlu7ZZMhN+w6My1f1fVXf9ev2r+6eDfD4fRMhkMpeBaXKdCalg5NYFPMpms0sDy62OWKINhtGPn8ABoC+dTud1BKmE+onAUeAOSBt8CKKtExgESafrKagb1fcB+3FKv1x68K8hYA/Qj0aafAiijUZnACRdUUVoYfQbuA8MAy+BF8BzG4LPwARgCtCLcx9wGYVXwHLgqvjd6zKMGWAZWqRunhF1a3HeC2wITtHYw/gT/UD5AMWQOG6v0Q/iNrTcI4jJvZtA+sZ1GK8AX4V773J1ZTqNLyjOi16ccD4Fp+lcmwRavYM+Zlw10XljghIQ1NFQafa3k6xr5kkH+8H48AOWtDEgGBUGuQSVYoLl5b8r6wfofqu43QcuMZJsfARYAiEZdOqBZHxINrYNMBKNjQQmYy2BjXEiga1xLIGLcVy0HhkfhPGQ7Y1FPYd2W+NCWKr4tuvcKHouhIaVCktaOQlw4etRvE95GpPHngUafVR5xFyxVST1oP+y5iPlJXVlW00cUsK7uirVRO3Vtlmx+IhL6UbBdLW1BD5qLKvyLJSnfYwjTXwHNMD4A0taBQkw7ItQbAXmWhMIo/UCLaK6L3RoeAP5ilJ30TVOpOcoPeLnMHynJeWoxrOlh1PXrZc8irhQDw4D1zhO5DiR48SaeZ5oiJvqqfQV1chjt1cmTtRNNBdZj52lJkUyx0y+EWr5I1XbmIk1kTWRCZig/ASqeyet4HTvWNKRkSDLOt0bbad56Pjkgv2ACZiACewjFJunV6MIrLRPF2AoPejgCIUJmIAJakMTVfEJZSPaCWRMrcrHO2tibA9cNVE+nv2ACaqDgPPSqjqtzHbtXPTStzRPsopZO7MncoIjE5SDALMvJ8SjMfpbEpTYurgZmHOpCzVakLOpS+xBXKtOPVBbjLsGVTSMscPjShAZCbL+omQdZOucCWLHmKdzrROY3vpp8xMtjEfnJ9omtankYdJ6UDbWkVvfXIk8akAmD6VueT1TC5OywZVzTiQPA807VhP53w3q2paguq3ADaBdt98rP1EeSufwVu2ZU4ykzT8wvWvX5h+Y3nhrc/dN+YmmiWWTn6h9F8+ayJrImlikJkbgnG3O2WZNLLUmOhrH5ycmGetmaWg7hZMEN6UTzKIfxtlqYuLOymui7VBqPZHzEz2f6vLb/zHOjCs+sc3mFanoUaYspzBOXlxn2JXZlVnSKkSAEZmB4gKwG6PxWt5ne2vbCdxWjbUxUsztblJ5XNn34qGHZDvZ650r6ueh2AfcSgqyiPgccAkXLqvUbwZWAcew72HSKGwEcorx/KDwr4nTgW1kHDsKOHAOijVAt/hNn/vaAqwUrQ7oojSasseBezjwJn43B4UPbD2h9QHqvpv8YHVQ+DbaXRhTD1YEhe/Gxa0b6LtZzfLSd6a4cPQtrE3AY9HqD7F/KorFAMWS9F+mRDAcLX1HxYrAW6BNGC0EiOgZ8JRKEH8bcQpKpugO4KMwoI+tnVS/FSc/Q4nz8W7T9/LU1bt3sitrYhD8EWAAdoU1AmCjen8AAAAASUVORK5CYII=")
+}
+
+#chart_container #chart_toolpanel .chart_toolpanel_button.selected .chart_toolpanel_icon {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAFACAYAAAC1CvwiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjBjZTZmNC1lNGU1LWM4NDctYjI5OC00Y2Q2NGJjMGRjMDYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjI0MkEyMUI4MTIwMTFFNDgxNjhGRjc0RjJGMjMwQkQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjI0MkEyMUE4MTIwMTFFNDgxNjhGRjc0RjJGMjMwQkQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZDNzdDQUY4NjU3RTExRTRBRTAyQTlGRjI0NjJBMEE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZDNzdDQUY5NjU3RTExRTRBRTAyQTlGRjI0NjJBMEE4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+s3AxtQAABPZJREFUeNrsXE1oHkUYnvkYq0IFC5ImubRI1WolSUEoFIqWHnIr6KqHStWLtaceJFhyUryG4ElKf8RaKELNYkFETyYXPYhNW3+CHtqL+NX+XdoKxQrTZ3bny7ffdv43+Wziu/BssrP7Pjs7M++z7+683zIpJVvEDDsBPNJT5kGL9S57gTMs58+xwKVlKHsC+A4kEwBPIVDLGmAK+Bok61MIOss4cA4k46kEahnUNZkCHkghUItqiwnge5BsSiHoLKp35kGyt1MgAoz+Bb4FFoDfgd+AX0MIbgDqmh8GJlkm52Ma8QKwHfhMb0/G9MIssA1nVNU8rMtewnU/FUJwqOj7TF4vtjL5A9bn9XHvGrtHOYRzyfl+TfwPsAmkf8R240nglh7e79R3+rsxkzdRi481wUfxl5DojauGIOez//s2WBEEHLcyV1eNFbJu95Od7nsfyGPvjdSN/804IElrTCCiLXIum9cgk7xA/8dBzkf07T6hDUrjD4CtqH5XZIKC6hk2ApwGxur7Ghn7CTzGboIAYztBoLGZIML4XoKu8WjoI4+oj+3iZpLJ88HjA2eTlRrImAeuJbmxCJOLkqgutyZ29WEA68utRGMlLkeAYRY7cOq+IlKkvEfWAs9qHe596IWywazDXSRJeY87N9REEdzaVkEJbO1lFpSA1vYpUqe14wRVi+pgrJTXe+ESsB5nvkKa2E9NzPkzWL8JbBSRRq9obNGl0zE1eBV4r1b2SWycqN7m7NdbCxg7W1qRUj5UeTn1eXgjdn3l/UIfcv4X/j8VpsoUJ1KcSHHi/U5QxomsWZyY86HGcWIj4zgCi5f6ojR/zJQaofYhUg2MmURyhGptA9JE0kQioGjdJ6j6Jey9Q9k+x/LColFJNhf77Bzk5rH3BfJGIiACInBoYqD2uUW1qn0BKQNuVVaT0RShEAEREMHK0MTa8WmaWDk+XhONNYjVxMrxpIlEsBIIKD+xPwR2PQjUypZX+zwiu8yTdSFaSRmSlOBIBMvhjTlvax0YXvy/qw3mMoMHtmPKXK8D2yFlwiNpw9ZtTeZTpLazDe4LXxDGxqlfe9A46BgpspzPNJP1TL4cT2Dqd1KkFU+gpgxzfhoYs+wfULf/ltW4mndi3l/kJwpHMLHVYdwhvyRsz4M9xg7y8EasBlwV8mpeWtI7NeGdoPWRO+dYg3JxUo31/l53TunK6JmdWs3ifMEwQsPzE23DO2jG25m778tP9OZkqcaaYQOOgNs5F0+qTJpImthUE43ORDnblLNNmpisicmRifl3LLYzO7xUBLuwRXBbLsFs/jIuwEtFYFjj+B1LQ02knG1G+YmMMuOW5O2+CE4bsRzXeIJiFYwDEZt7syrbgIYySVrfCHK+DvgCeDy1BgeAr9CVF9OHMmMP+h+6ljzd2N0uyvahtDnXnKtPoh0EvhQO9uPAp2i4uVr568Au4EPs+9HWC3uAds34SVb+NPFR4C1lbO6FnG/A+kVgn95Wn/t6A3hen3XePg7KT7xNFNXP5FVsb9ZnXQu8bfpeWL0Gu1n5bbRvYKxqsAOYtjx0qM9ebe7qQc4fw/ooK7+F9RpwtngqyeRtvV/V4llAxc/qV6aKYKEkMMWKjP0JjGqjpwFF9Avwc/E3k393Fal8iKhmyR8DrmmDn5j6yFom79hE1TTG98EgSOvMlxCR7EqiythdAQYAbEvqZUahHBUAAAAASUVORK5CYII=")
+}
+
+#chart_container #chart_toolpanel #chart_Cursor {
+	background-position: 0 0
+}
+
+#chart_container #chart_toolpanel #chart_CrossCursor {
+	background-position: 0 -20px
+}
+
+#chart_container #chart_toolpanel #chart_SegLine {
+	background-position: 0 -40px
+}
+
+#chart_container #chart_toolpanel #chart_StraightLine {
+	background-position: 0 -60px
+}
+
+#chart_container #chart_toolpanel #chart_RayLine {
+	background-position: 0 -100px
+}
+
+#chart_container #chart_toolpanel #chart_ArrowLine {
+	background-position: 0 -80px
+}
+
+#chart_container #chart_toolpanel #chart_HoriSegLine {
+	background-position: 0 -160px
+}
+
+#chart_container #chart_toolpanel #chart_HoriStraightLine {
+	background-position: 0 -120px
+}
+
+#chart_container #chart_toolpanel #chart_HoriRayLine {
+	background-position: 0 -140px
+}
+
+#chart_container #chart_toolpanel #chart_VertiStraightLine {
+	background-position: 0 -180px
+}
+
+#chart_container #chart_toolpanel #chart_PriceLine {
+	background-position: 0 -200px
+}
+
+#chart_container #chart_toolpanel #chart_TriParallelLine {
+	background-position: 0 -220px
+}
+
+#chart_container #chart_toolpanel #chart_BiParallelLine {
+	background-position: 0 -240px
+}
+
+#chart_container #chart_toolpanel #chart_BiParallelRayLine {
+	background-position: 0 -260px
+}
+
+#chart_container .chart_toolpanel_button #chart_DrawFibRetrace {
+	background-position: 0 -280px
+}
+
+#chart_container #chart_toolpanel #chart_DrawFibFans {
+	background-position: 0 -300px
+}
+
+#chart_tabbar {
+	border-top-width: 1px;
+	border-top-style: solid;
+	cursor: default;
+	display: none;
+	*font-weight: bold;
+	height: 22px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1
+}
+
+#chart_tabbar ul {
+	height: 100%;
+	list-style: none;
+	padding: 0 0 0 4px
+}
+
+#chart_tabbar li {
+	display: inline-block;
+	height: 100%;
+	margin: 0
+}
+
+#chart_tabbar a {
+	cursor: pointer;
+	display: inline-block;
+	height: 100%;
+	margin: 0;
+	padding: 3px 4px 0 4px;
+	overflow: hidden
+}
+
+#chart_tabbar a:hover {
+	text-decoration: none
+}
+
+#chart_container #chart_tabbar {
+	background-color: #1a1f28;
+	border-top-color: #2b2929
+}
+
+#chart_container #chart_tabbar a {
+	color: #e5e5e5
+}
+
+#chart_container #chart_tabbar a:hover {
+	background-color: #383838;
+	color: #fff
+}
+
+#chart_container #chart_tabbar a.selected {
+	color: #ffac00
+}
+
+#chart_canvasGroup {
+	position: absolute;
+	z-index: 0
+}
+
+/*#chart_canvasGroup:after {
+	display: block;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background: url(/statics/img/trans/kline_logo.png) 50% 45% no-repeat;
+	background-size: auto 30%;
+	position: absolute;
+	z-index: 1
+}*/
+
+#chart_mainCanvas {
+	overflow: hidden;
+	position: absolute;
+	z-index: 0
+}
+
+#chart_overlayCanvas {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2
+}
+
+#chart_loading {
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 4px;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 48px;
+	overflow: hidden;
+	position: absolute;
+	text-align: center;
+	visibility: hidden;
+	width: 200px;
+	z-index: 200
+}
+
+#chart_loading.activated {
+	visibility: visible
+}
+
+#chart_container #chart_loading {
+	border-color: #aaa;
+	background-color: rgba(0,0,0,0.6);
+	color: #ccc
+}
+
+#chart_parameter_settings {
+	border-radius: 4px;
+	border-width: 1px;
+	border-style: solid;
+	width: 640px;
+	position: absolute;
+	overflow: hidden;
+	visibility: hidden;
+	z-index: 500
+}
+
+#chart_parameter_settings.clicked {
+	visibility: visible
+}
+
+#chart_parameter_settings h2 {
+	padding: 5px 12px;
+	margin: 0;
+	font-size: 14px;
+}
+
+#chart_parameter_settings table {
+	border-collapse: collapse;
+	width: 100%
+}
+
+#chart_parameter_settings tr {
+	line-height: 32px
+}
+
+#chart_parameter_settings th {
+	text-align: right;
+	padding: 0 4px 0 16px
+}
+
+#chart_parameter_settings input {
+	width: 2em;
+	margin: 0 2px 0 2px
+}
+
+#chart_parameter_settings #close_settings {
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+	margin: 8px auto;
+	padding: 5px 24px 5px 24px;
+	width: 150px
+}
+
+#chart_parameter_settings .chart_str_default {
+	margin-right: 24px
+}
+
+#chart_container #chart_parameter_settings {
+	background-color: rgba(0,0,0,0.6);
+	border-color: #aaa;
+	color: #ccc
+}
+
+#chart_container #chart_parameter_settings #close_settings {
+	background: #1887da;
+	color: #eee
+}
+
+#chart_container input,#chart_container button {
+	border-radius: 4px;
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px
+}
+
+#chart_container input[type=text] {
+	width: 12em
+}
+
+#chart_container input[type=button],#chart_container input[type=submit],#chart_container button {
+	font-family: arial,sans;
+	padding: 4px 8px;
+	cursor: pointer
+}
+
+#chart_container input,#chart_container button {
+	background-color: #333;
+	border-color: #333;
+	color: #ccc
+}
+
+#trade_container {
+	width: 520px;
+	height: 100%;
+	float: right;
+	z-index: 99999;
+	font-size: 12px;
+	overflow: hidden
+}
+
+@media(max-width:1199px) {
+	#trade_container {
+		width: 400px
+	}
+}
+
+#trade_container {
+	background: #1a1f28;
+	color: #f1f1f1
+}
+
+#orderbook #asks,#orderbook #bids {
+	width: 100%;
+	height: 50%;
+	position: relative;
+	display: inline-block;
+	overflow: hidden
+}
+
+#orderbook #asks {
+	padding-bottom: 15px
+}
+
+#orderbook #bids {
+	padding-top: 15px
+}
+
+#orderbook #gasks,#orderbook #gbids {
+	width: 80px;
+	display: none;
+	height: 195px;
+	position: relative;
+	overflow: hidden
+}
+
+#market {
+	font-family: "Microsoft YaHei",Arial;
+	color: #de211d;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	height: 29px;
+	line-height: 29px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #2b2929
+}
+
+#market .infoDepth {
+	margin-left: 8px;
+	color: #f78d15
+}
+
+#market a:hover {
+	text-decoration: underline
+}
+
+#orderbook {
+	width: 50%;
+	height: 100%;
+	float: left;
+	position: relative;
+	border-right: 1px solid #2b2929
+}
+
+#orderbook .table {
+	position: absolute;
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+	width: 100%
+}
+
+#gasks .table,#asks .table {
+	bottom: 15px
+}
+
+#orderbook .table .row {
+	padding: 0;
+	margin: 0;
+	line-height: 18px;
+	font-family: Arial,"Microsoft YaHei";
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px
+}
+
+#orderbook .table .row:hover {
+	background-color: #383838
+}
+
+#orderbook .table .g {
+	color: #666
+}
+
+#orderbook .price {
+	width: 48%;
+	text-align: right;
+	display: inline-block;
+	padding-right: 15px
+}
+
+#orderbook .amount {
+	width: 48%;
+	text-align: left;
+	display: inline-block;
+	padding-left: 15px
+}
+
+#orderbook .price g,#orderbook .amount g {
+	color: #666
+}
+
+#trade_container .green {
+	color: #3dc18e
+}
+
+#trade_container .red {
+	color: #de211d
+}
+
+#trade_container.light .green {
+	color: #de211d
+}
+
+#trade_container.light .red {
+	color: #3dc18e
+}
+
+#price {
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial,"Microsoft YaHei";
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -15px;
+	z-index: 100;
+	cursor: pointer
+}
+
+#price.green {
+	background-color: #2b2929
+}
+
+#price.red {
+	background-color: #2b2929
+}
+
+#price:hover {
+	background-color: #383838
+}
+
+#price span {
+	font-weight: 400;
+	margin-left: 8px;
+	font-size: 14px
+}
+
+.TRX_kline .trades_list ul,.TRX_kline #orderbook .table .row {
+	font-size: 12px
+}
+
+.TRX_kline #orderbook .price {
+	width: 38%;
+	padding-right: 5px
+}
+
+.TRX_kline #orderbook .amount {
+	width: 58%;
+	padding-left: 5px
+}
+
+.TRX_kline .trades_list ul li.tm {
+	width: 30%;
+	padding-left: 5px
+}
+
+.TRX_kline .trades_list ul li.pr-red {
+	width: 30%
+}
+
+.TRX_kline .trades_list ul li.vl {
+	width: 40%
+}
+
+.long-price .trades_list ul li.tm {
+	width: 35%
+}
+
+.long-price .trades_list ul li.pr-red,.long-price .trades_list ul li.pr-green {
+	width: 40%
+}
+
+.long-price .trades_list ul li.vl {
+	width: 25%
+}
+
+.long-price .trades_list ul {
+	font-size: 12px
+}
+
+#trade_container #orderbook div.table div.remove g,#trade_container #orderbook div.table div.remove span {
+	color: #444
+}
+
+#trade_container #orderbook div.table div.add {
+	display: none;
+	background-color: rgba(238,238,238,0.2)
+}
+
+#trades {
+	width: 50%;
+	float: left;
+	overflow-y: auto;
+	text-align: left;
+	color: #666
+}
+
+.trades_list ul {
+	height: 18px;
+	text-align: left;
+	list-style: none;
+	clear: both;
+	zoom: 1;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	font-size: 14px
+}
+
+.trades_list ul:hover {
+	background-color: #383838
+}
+
+.trades_list ul li {
+	line-height: 18px;
+	color: #999;
+	list-style: none;
+	float: left;
+	*display: inline;
+	margin: 0;
+	padding: 0;
+	font-family: Arial,"Microsoft YaHei"
+}
+
+.trades_list ul li.tm {
+	width: 40%;
+	color: #999;
+	padding-left: 15px
+}
+
+.trades_list ul li.pr-green {
+	width: 30%;
+	color: #3dc18e
+}
+
+.trades_list ul li.pr-red {
+	width: 30%;
+	color: #de211d
+}
+
+.trades_list ul li.vl {
+	width: 30%;
+	color: #ccc
+}
+
+.trades_list ul li.vl g {
+	color: #666
+}
+
+#trade_container .trades_list ul.newul {
+	display: none;
+	background-color: rgba(238,238,238,0.2)
+}
+
+.light .trades_list ul li.pr-green {
+	color: #de211d
+}
+
+.light .trades_list ul li.pr-red {
+	color: #3dc18e
+}
+
+.container .nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	padding-left: 3px;
+	height: 41px
+}
+
+.container .nav li {
+	display: inline-block;
+	margin-right: 9px
+}
+
+.container a {
+	text-decoration: none;
+	color: #6BF;
+	font-family: Arial,sans
+}
+
+.container a:hover {
+	text-decoration: underline
+}
+
+.container a.active {
+	color: #FC9
+}
+
+.container span {
+	margin-left: 3px;
+	font-family: Arial,"Microsoft YaHei";
+	color: #ccc
+}
+
+#markettop {
+	height: 40px;
+	line-height: 41px;
+	font-size: 12px
+}
+
+#markettop {
+	background: #1a1f28;
+	border-bottom: 1px solid #333
+}
+
+#markettop a.selected {
+	color: #ffac00
+}
+
+.bk-animationload {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	background-color: #1a1f28;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*display: none*/
+}
+
+.bk-preloader {
+	width:250px;
+	height:250px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-145px;
+	margin-left:-125px;
+	background-image:url(../img/kine-loading.png);
+	background-size:25% auto;
+	background-position:center center;
+	background-repeat:no-repeat;
+	z-index:10001
+}
+.bk-preloader:after {
+	position:absolute;
+	width:100%;
+	height:100%;
+	border-radius:100%;
+	content:'';
+	display:block;
+	top:0;
+	left:0;
+	z-index:10000;
+	background-image:url(../img/load-pix.png);
+	background-size:40% auto;
+	background-position:center center;
+	background-repeat:no-repeat;
+	-o-animation:preloader_after 1.5s infinite linear;
+	-ms-animation:preloader_after 1.5s infinite linear;
+	-webkit-animation:preloader_after 1.5s infinite linear;
+	animation:preloader_after 1.5s infinite linear
+}
+.bk-preloader:before {
+	position:absolute;
+	width:100%;
+	height:100%;
+	border-radius:100%;
+	content:'';
+	display:block;
+	top:0;
+	left:0;
+	z-index:9999;
+	background-size:40% auto;
+	background-position:center center;
+	background-repeat:no-repeat
+}
+@-webkit-keyframes preloader_after {
+	0% {
+	transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-webkit-transform:rotate(0deg)
+	}
+	100% {
+		transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg)
+	}
+}
+@-o-keyframes preloader_after {
+	0% {
+	transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-webkit-transform:rotate(0deg)
+	}
+	100% {
+		transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg)
+	}
+}
+@-ms-keyframes preloader_after {
+	0% {
+	transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-webkit-transform:rotate(0deg)
+	}
+	100% {
+		transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg)
+	}
+}
+@keyframes preloader_after {
+	0% {
+	transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-webkit-transform:rotate(0deg)
+	}
+	100% {
+		transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		-o-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg)
+	}
+}
+
+.for-frame #chart_container #chart_toolbar_theme,.for-frame #chart_container .market_chooser,.for-frame #trade_container {
+	display: none
+}
+
+.for-frame #chart_container #chart_toolbar {
+	color: #757b88;
+	background: #f2f3f5;
+	height: 30px!important;
+	border-bottom: 1px solid #f2f3f5
+}
+
+.for-frame #chart_container .chart_toolbar_tabgroup li a,.for-frame #chart_container .chart_toolbar_button,.for-frame #chart_container .chart_dropdown_data a,.for-frame #chart_container .chart_dropdown_t {
+	border: 0;
+	color: #757b88
+}
+
+.for-frame #chart_container .chart_toolbar_button:hover,.for-frame #chart_container .chart_toolbar_tabgroup li a:hover {
+	color: #ff9d11;
+	background: transparent
+}
+
+.for-frame #chart_container .chart_dropdown-hover.chart_dropdown_t {
+	color: #ff9d11;
+	background: transparent
+}
+
+.for-frame #chart_container .chart_dropdown_data {
+	color: #757b88;
+	background: #FFF;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 3px;
+	border: 0
+}
+
+.for-frame #chart_container .chart_dropdown_data a:hover {
+	color: #ff9d11;
+	background: transparent
+}
+
+.for-frame #chart_container .chart_dropdown_data td {
+	color: #757b88;
+	border-bottom: 1px solid #f2f3f5
+}

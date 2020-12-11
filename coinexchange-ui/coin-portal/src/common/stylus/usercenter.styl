@@ -1,0 +1,149 @@
+@import "variable.styl"
+
+.ucenter-wrap{
+    background #1b2029
+    height auto
+    min-height calc(100vh - 205px)
+    .ucenter-content{
+        width 1200px
+        margin 0 auto
+        padding-top 50px
+        padding-bottom 50px
+    }
+    .ucenter-row{
+        position relative
+    }
+    .ucenter-main{
+        background #fff
+        margin-left 250px
+        min-height 620px
+        border-radius 10px
+        &.no-sidebar{
+          margin-left 0
+        }
+        .ucenter-header{
+          display flex
+          align-items center
+          justify-content space-between
+          padding 0 40px
+          height 80px
+          border-bottom 1px solid rgba(170,171,177,.5)
+          .title{
+            position relative
+            font-size 20px
+          }
+          .right-bar{
+            align-content center
+            .tips{
+              font-size 16px
+              vertical-align middle
+              .tips-text{
+                vertical-align middle
+              }
+            }
+
+            .el-select{
+              .el-input__inner{
+                border-color #aaabb1
+              }
+            }
+          }
+        }
+        .ucenter-body{
+            padding 28px 40px
+            .noteinfo{
+              color #F61F4C
+              font-size 16px
+              margin-bottom 30px
+            }
+            .el-form-item__label{
+              color $color-usercenter-main-text
+            }
+            .el-input > .el-input__inner{
+              border-radius 2px
+              border-color #AAABB1
+            }
+            .el-input-group__append, .el-input-group__prepend{
+              background-color #fff
+              border-color #AAABB1
+              border-radius 2px
+            }
+            .el-input-group--append .el-input__inner, .el-input-group__prepend {
+              border-top-right-radius 0
+              border-bottom-right-radius 0
+            }
+            .el-input-group__append button.el-button,
+            .el-input-group__append div.el-select .el-input__inner,
+            .el-input-group__append div.el-select:hover .el-input__inner,
+            .el-input-group__prepend button.el-button,
+            .el-input-group__prepend div.el-select .el-input__inner,
+            .el-input-group__prepend div.el-select:hover .el-input__inner {
+              border-color: transparent;
+            }
+            .el-input.is-disabled .el-input__inner{
+                background-color #F0F0F0
+                border-color #F0F0F0
+                color $color-usercenter-main-text
+            }
+            .el-button{
+              border-radius 2px
+            }
+            .el-button.el-button--primary{
+              background-color $color-global-purple
+              border-color $color-global-purple
+              width 100%
+            }
+            .link{
+              color $color-global-purple
+            }
+            .suffix{
+              margin-right 10px
+              cursor pointer
+            }
+            .el-table::before{
+              background-color transparent
+            }
+            .table-header{
+              background-color #f0f0f0
+              padding 3px 8px
+              border-bottom none
+            }
+            .el-pagination{
+              text-align center
+              margin-top 20px
+            }
+          .copy-btn{
+            .el-input-group__append{
+              border-color #f0f0f0
+              background #f0f0f0
+              .el-button{
+                color $color-global-purple
+              }
+            }
+          }
+        }
+    }
+    .sub-error-info{
+      color: #f60;
+      padding-left:100px;
+    }
+    .suffix-link{
+      .el-input__inner,
+      .el-input-group__prepend{
+        border-right none
+      }
+      .el-input-group__append{
+        border-left none
+      }
+    }
+    .ucenter-footer{
+      margin-top 205px
+      .footer-bar{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 205px;
+      }
+    }
+}

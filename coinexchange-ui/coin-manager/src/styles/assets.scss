@@ -1,0 +1,34 @@
+.assets{
+
+  .form-top{
+    overflow: hidden;
+  }
+  .line{
+    text-align: center;
+  }
+  .table{
+    padding: 0 20px;
+  }
+  .dialog-footer{
+    text-align: right;
+  }
+  .widthauto{
+    width: 100%;
+  }
+  .flex{
+    display: flex;
+  }
+  .inputnumber{
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.el-date-range-picker__time-header{
+  display: none;
+}
+.inputauto{
+  width: 200px;
+}

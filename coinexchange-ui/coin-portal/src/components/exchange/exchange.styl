@@ -1,0 +1,100 @@
+.exchange-operation {
+  height:30px;
+  min-height 30px
+  display flex
+  align-items center
+  background #272A34
+  padding 0 30px
+  font-size 12px
+  color #aaabb1
+  .el-switch__label{
+    color #ccc
+  }
+  .el-switch__label.is-active{
+    color #409EFF
+  }
+  .exchange-name {
+    margin-right 10px
+    color white
+  }
+  .change {
+    text-align center
+    width: 50px;
+  }
+  .change-up {
+    color: $color-global-buy
+  }
+  .change-down {
+    color: $color-global-sell
+  }
+  .price-diff {
+    text-align center
+    margin-right 10px;
+
+  }
+  .price-diff-up {
+    color: $color-global-buy
+  }
+  .price-diff-down {
+    color: $color-global-sell
+  }
+
+  .echarts-buy {
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+    /*background: $color-global-buy;*/
+    margin-right: 10px;
+
+    &:after {
+      content ""
+      display inline-block
+      background url("../../assets/exchange/up-color.png") no-repeat
+      width: 17px;
+      height: 15px;
+    }
+    &:hover {
+      opacity 0.8
+
+    }
+  }
+  .echarts-sell {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    color: #fff;
+    cursor: pointer;
+    /*background: $color-global-sell;*/
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 10px;
+
+    &:after {
+      content ""
+      display inline-block
+      background url("../../assets/exchange/down-color.png") no-repeat
+      width: 16px;
+      height: 15px;
+      vertical-align middle
+    }
+    &:hover {
+      opacity 0.8
+
+    }
+  }
+  .interval {
+    margin-right: 20px;
+    cursor: pointer
+  }
+  .exchange-funds-info{
+    display flex
+    flex 1
+    height 25px
+    line-height 25px
+    margin-left 10px
+    display flex
+
+  }
+
+}

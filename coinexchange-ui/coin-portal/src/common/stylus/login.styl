@@ -1,0 +1,261 @@
+.account-entry{
+  width 100%
+  height 100vh
+  display table
+  background: #30313c url(../../assets/login/login-bg.jpg) center center / 100% 100% no-repeat
+  .login{
+    width 525px
+    padding 20px 0 40px 0
+  }
+  .regist {
+    position relative
+    width 625px
+    padding 40px 40px 0 40px
+    .title {
+      &:after {
+        content ''
+        display inline-block
+        width 100px
+        height 2px
+        background #0455b1
+        position relative
+        top -15px
+        left 10px
+      }
+      &:before {
+        content ''
+        display inline-block
+        width 100px
+        height 2px
+        background #0455b1
+        position relative
+        top -15px
+        right 10px
+      }
+    }
+    .left-btn {
+      padding 15px 0
+      >a {
+        color #d4d4d4
+        font-size 18px
+        > span {
+          color #0455b1
+        }
+      }
+    }
+    .right-btn {
+      padding 15px 0
+      font-size 18px
+      text-align center
+      .a {
+        color #0455b1
+      }
+    }
+    .sendCode {
+      background #0455b1
+      border-color #0455b1
+      padding 12px 16px
+      display block
+      width 100%
+    }
+
+    .el-button--primary.is-disabled,
+    .el-button--primary.is-disabled:active,
+    .el-button--primary.is-disabled:focus,
+    .el-button--primary.is-disabled:hover {
+      background #97aeff
+      border-color #97aeff
+    }
+    .validate-code {
+      height 38px
+      width 100%
+      border-radius 4px
+      cursor pointer
+    }
+    .head-top{
+      position absolute
+      top 0
+      right 0
+      width 145px
+      height 100px
+      background url(../../assets/login/top_1.png) no-repeat top right
+      background-size 145px 100px
+      font-size 16px
+      text-align right
+      padding-right 10px
+      line-height 80px
+      >a{
+        font-weight bold
+        color: #0455b1
+      }
+    }
+  }
+  .forget-password{
+    padding 40px;
+    .sendCode{
+      background #0455b1
+    }
+}
+  .agreement {
+    cursor pointer
+    color $color-global-blue
+  }
+
+  .mb10 {
+    margin-bottom 10px
+  }
+  .wait {
+    color: #fff;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .topnav{
+    position fixed
+    top 0
+    left 0
+    right 0
+  }
+  .account-wrap{
+    display table-cell
+    vertical-align middle
+    //background url(../../assets/login/logo.png) no-repeat center 10%;
+    //background-size 285px 95px
+  }
+  .account-content{
+    margin 0 auto
+    background #b6bdcd
+    box-sizing border-box
+    border-radius 25px
+    .noindent{
+      input{
+        background #fff
+        color #000
+      }
+    }
+    .el-form-item{
+      input{
+        background #fff
+        color #000
+        border-radius 5px
+      }
+      .ipt{
+        input{
+          text-indent 35px
+        }
+
+      }
+      .email{
+        input{
+          background url(../../assets/login/email.png) #fff no-repeat center left 10px
+          background-size 32px 26px
+        }
+      }
+      .user{
+        input{
+          background url(../../assets/login/user.png) #fff no-repeat center left 10px
+          background-size 32px 26px
+        }
+      }
+      .pass{
+        input{
+          background url(../../assets/login/pass.png) #fff no-repeat center left 10px
+          background-size 32px 26px
+        }
+      }
+      .code{
+        input{
+          background url(../../assets/login/code.png) #fff no-repeat center left 10px
+          background-size 32px 26px
+        }
+      }
+      .vcode{
+        input{
+          background url(../../assets/login/vcode.png) #fff no-repeat center left 10px
+          background-size 32px 26px
+        }
+      }
+
+    }
+    .title {
+      text-align center
+      color #0455b1
+      font-size 48px
+      margin-bottom 20px
+    }
+    .content-box{
+
+      display flex
+      justify-content space-between
+      >div{
+      }
+      .box-l{
+        width 40%
+        text-align center
+        >img{
+          width 210px
+          height 210px
+        }
+        >p{
+          font-size 18px
+          color #000
+          padding 30px 0 0 0
+        }
+      }
+      .box-r{
+        width 85%
+        margin 0 auto
+        padding 0 50px
+        //border-left  1px #464646 solid
+      }
+    }
+    .account-help{
+      position relative
+      width 100%
+      .help-box{
+        display flex
+        justify-content space-between
+        .left-btn,.right-btn{
+          font-size 14px
+          color #AAABB1
+          margin 5px 0
+          .a{
+            color #0455b1
+          }
+        }
+      }
+    }
+  }
+
+  .button-primary{
+    display block
+    width 100%
+    background #0455b1
+    border-color #0455b1
+    color #fff
+    font-size 26px
+    border-radius 5px
+    cursor pointer
+  }
+  .el-input__inner{
+    background rgba(0,0,0,.25)
+    border-color #AAABB1
+    color #AAABB1
+  }
+  .el-input__inner:focus{
+    color #fff
+    border-color #fff
+  }
+  .el-select .el-input.is-focus .el-input__inner{
+    border-color #fff
+  }
+  // .el-input__inner:-webkit-autofill{
+  //   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  // }
+}

@@ -1,0 +1,51 @@
+// 背景图片
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+// 不换行
+no-wrap()
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+// 扩展点击区域
+extend-click()
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    top: -10px
+    left: -10px
+    right: -10px
+    bottom: -10px
+
+/*box center*/
+transformCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -webkit-transform-origin: 50% 50%;
+}
+
+transformCenterHorizontal() {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transform-origin: 50% 0;
+  -webkit-transform: translate(-50%, 0);
+  -webkit-transform-origin: 50% 0;
+}
+
+transformCenterVertical() {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transform-origin: 0 50%;
+  -webkit-transform: translate(0, -50%);
+  -webkit-transform-origin: 0 50%;
+}

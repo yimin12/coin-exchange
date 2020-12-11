@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+
+  .main-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .top {
+    display: flex;
+    flex: 1
+  }
+  .bottom {
+    height: 300px;
+    background: #0b93b9;
+  }
+  .top .lefter {
+    width: 515px;
+    display: flex;
+    border: 1px solid #f00;
+  }
+  .top .righter {
+    flex: 1;
+    display: flex;
+    border: 1px solid #0F0;
+  }
+</style>
+<body>
+<div class="main-container">
+  <div class="top">
+    <div class="lefter">
+      <div id="main-content" class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="connect">WebSocket connection:</label>
+                <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" id="symbol" class="form-control" value="USDT/JPY">
+                <input type="text" id="period" class="form-control" value="1min">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+              <thead>
+              <tr>
+                <th>StockInfo</th>
+              </tr>
+              </thead>
+              <tbody id="userinfo">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="righter">
+    </div>
+  </div>
+  <div class="bottom">
+  </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script type="text/javascript" src="testsocket.js">
+
+</script>
+</body>
+
+</html>

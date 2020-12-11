@@ -1,0 +1,1210 @@
+@import "variable.styl"
+
+/*
+ * 交易界面与创新交易布局样式
+*/
+
+/* 需要给HTML节点添加exchange类 */
+// html.exchange,
+// html.exchange body,
+// html.exchange body > #app{
+//   height 100%
+// }
+#kline-win {
+  background-color: #1a1f28
+}
+.exchange{
+
+  overflow hidden
+
+  .trading-recode-tab{
+    width 100%
+    background #1b1f28
+    .el-tabs__header{
+      height 30px
+      border-bottom none
+      margin 0
+      width 100% !important
+      .el-tabs__nav{
+        border none
+      }
+      .el-tabs__item{
+        height 30px
+        line-height 30px
+        border none
+        color #aaabb1
+        &.is-active{
+          background #7392ff
+          color #fff
+        }
+      }
+    }
+    .el-table .el-table__header th{
+      background #1b1f28 !important
+    }
+  }
+
+  .el-table,
+  .el-table__expanded-cell{
+    background #1b1f28
+  }
+
+  .el-table--border::after,
+  .el-table--group::after,
+  .el-table::before{
+    background-color: transparent
+  }
+
+  .el-table{
+    width 100%
+    .table-row-class{
+      background #1b1f28
+      cursor pointer
+    }
+    .el-table__header,
+    .el-table__header tr {
+      background-color: #1b1f28
+    }
+    .el-table__header th {
+      background-color: #272b34
+      color #AAABB1
+      font-size 12px
+      border-bottom: none
+      height:30px;
+      line-height:30px;
+      padding 0
+    }
+
+    td{
+      color:rgba(255,255,255,.6);
+      border-bottom 1px solid #2a2d38
+      height:35px;
+      line-height:35px;
+      padding 0
+      font-size 12px
+    }
+
+    .el-table__body tr:hover>td{
+      color #fff
+      background-color: #1b1f28
+      .el-button{
+        opacity 1
+      }
+    }
+  }
+
+  .trading-table-scroll{
+    height 200px
+    overflow auto
+
+
+    .trade-page{
+      text-align center
+      margin-top 5px
+    }
+    .no-data{
+      text-align center
+      color #ccc
+      font-size:12px
+      line-height 100px
+    }
+
+
+  }
+
+  ::-webkit-scrollbar{
+      width: 6px;
+      height: 6px;
+  }
+  ::-webkit-scrollbar-track-piece{
+      background-color: #1b1f28;
+  }
+  ::-webkit-scrollbar-thumb:vertical{
+      height: 5px;
+      background-color: #444;
+  }
+  ::-webkit-scrollbar-thumb:horizontal{
+      width: 5px;
+      background-color: #1b1f28;
+  }
+
+  .trading-table{
+    width 100%
+    font-size 12px
+    thead > tr > th{
+      color rgba(255,255,255,.4)
+      text-align left
+    }
+    thead > tr > th,
+    tbody > tr > td{
+      height:35px;
+      line-height:35px;
+      padding 0 12px
+    }
+
+    tbody > tr > td{
+      color:#aaabb1;
+      border-bottom 1px solid #2a2d38
+      font-size 12px
+    }
+
+    tbody tr:hover>td{
+      color #fff
+      .el-button{
+        opacity 1
+      }
+    }
+  }
+
+  .el-tab-pane{
+    .trading-table,
+    .el-table{
+
+      .el-button{
+        background $color-global-buy
+        border: none
+        color: white
+        border-radius 2px
+        padding 6px 12px
+        opacity .6
+        &:hover{
+          opacity 1
+        }
+      }
+    }
+  }
+}
+
+.trading-view{
+  height 100vh
+  background #1b1f28
+
+  .trading-header{
+    position absolute
+    top 0
+    right 0
+    left 0
+  }
+  .trading-container{
+    min-width 1200px
+    height 100%
+    display flex
+    flex-direction column
+
+    .trading-wrap{
+      display flex
+      flex 1
+      margin-top 60px
+      .trading-chart{
+        display flex
+        flex 1
+        overflow hidden
+        &.two-col{
+          flex-direction column
+
+        }
+      }
+      .trading-market{
+        display flex
+        &.one{
+          width 400px
+        }
+        &.two{
+          width 600px
+          justify-content space-between
+          .trade-box{
+            width 300px
+            display flex
+            flex 1
+            flex-direction column
+            border-left 1px solid #4e4f59
+
+            .trade-wall{
+              position relative
+              display flex
+              width 100%
+              flex 1
+              flex-direction column
+            }
+
+            .trade-form{
+              display flex
+              flex-direction column
+              height 230px
+              border-top 1px solid #4e4f59
+            }
+          }
+        }
+        .trading-displayer{
+          width 100%
+          height 100%
+          .trading-recode-tab{
+            height 100%
+          }
+          .el-tabs__header{
+            background-color #272a34
+          }
+          .el-tabs__content{
+            height calc(100% - 30px)
+            .el-tab-pane{
+              height 100%
+              position relative
+            }
+          }
+        }
+      }
+    }
+    .trading-kline{
+      display flex
+      flex 1
+      position relative
+    }
+    .trading-recode{
+      position relative
+      display flex
+      height 230px
+      border-top 1px solid #4e4f59
+    }
+
+
+    /* 交易输入样式 */
+
+    .transaction{
+      padding 10px
+
+      color: $color-trade-text;
+
+      .trans-title{
+        color: #AFB4B8
+        font-size 14px
+        padding-bottom 10px
+        border-bottom: #444 1px solid
+        margin-bottom 5px
+      }
+    }
+  }
+}
+
+
+
+  .trade-table{
+    width 100%
+    thead > tr > th{
+      color gray
+    }
+    tbody > tr > td{
+      color #aaabb1
+      cursor pointer
+    }
+    tbody > tr{
+      border-bottom 1px solid #333
+    }
+    tbody > tr:last-child{
+      border-bottom none
+    }
+    tbody > tr:hover{
+      background-color #272b34
+      border-bottom-color #272b34
+      td{
+        color #fff
+      }
+    }
+    thead > tr > th,
+    tbody > tr > td{
+      padding 8px 12px
+    }
+    thead > tr > th:nth-child(1){
+      text-align left
+      width 20%
+    }
+    tbody > tr > td:nth-child(2),
+    thead > tr > th:nth-child(2){
+      width 30%
+      text-align right
+    }
+    tbody > tr > td:nth-child(3),
+    thead > tr > th:nth-child(3){
+      width 30%
+      text-align right
+    }
+    tbody > tr > td:nth-child(4),
+    thead > tr > th:nth-child(4){
+      width 20%
+      text-align right
+    }
+  }
+
+
+    /*公共：下拉框*/
+    .wgt-dropdown {
+      position absolute
+      top 0
+      left 20px
+      width: 100px;
+      height: 29px;
+      font-size: 12px;
+    }
+    .wgt-dropdown .dropdown-tit {
+      width: 100%;
+      height: 29px
+      vertical-align middle
+    }
+    .wgt-dropdown .dropdown-tit:after {
+      content: '';
+      font-size: 0;
+      vertical-align middle
+      margin-left 5px
+      display inline-block
+    }
+    /*三角箭头*/
+    .wgt-dropdown .dropdown-tit:after {
+      border-style: solid;
+      border-color: transparent;
+      border-width: 5px 3px 0 3px;
+      border-top-color: $color-global-purple;
+    }
+    /*三角箭头*/
+    .wgt-dropdown .dropdown-tit a {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+    .wgt-dropdown .dropdown-tit a {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 30px
+    }
+    .wgt-dropdown .txt-container {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      z-index: 99;
+      border-width: 1px;
+      border-style: solid;
+      min-width: 100%;
+      overflow: auto
+    }
+    .wgt-dropdown .txt-container .dropdown-txt {
+      padding: 10px
+      position relative
+      .search{
+        position absolute
+        right 22px;
+        top 15px
+        width 100px
+        z-index 9
+        .el-input__inner{
+          height 22px
+          background-color #363e4e
+          border-color #363e4e
+          color #eee
+        }
+        .el-input__icon{
+          line-height 22px
+        }
+      }
+    }
+    .wgt-dropdown.active .dropdown-tit {
+      z-index: 102
+    }
+    .wgt-dropdown.active .txt-container {
+      z-index: 101
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5)
+    }
+    .wgt-dropdown.active .dropdown-tit:after {
+      border-width: 0 3px 5px 3px;
+      border-color: transparent;
+      border-bottom-color: $color-global-purple;
+    }
+    /*三角箭头*/
+    .wgt-dropdown.active .txt-container {
+      display: block
+    }
+    /*标题边框／字体／背景颜色*/
+    .wgt-dropdown .dropdown-tit a {
+      color: $color-global-purple
+    }
+    .wgt-dropdown .dropdown-tit:after {
+      border-top-color: $color-global-purple
+    }
+    /*三角箭头：颜色*/
+    .wgt-dropdown.active .dropdown-tit:after {
+      border-bottom-color: $color-global-purple
+    }
+    /*激活三角箭头*/
+    .wgt-dropdown .txt-container {
+      border-color: #999;
+    }
+    /*内容容器边框/背景颜色*/
+    .wgt-dropdown .txt-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    .wgt-dropdown .txt-container ul li {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    /*公共：下拉框 抽象重写*/
+    .wgt-dropdown .txt-container {
+      background-color: #1a1f28
+    }
+    .wgt-dropdown .txt-container {
+      border-color: #606060
+    }
+    /*边框颜色*/
+    /*下拉框 内容 复合列表类*/
+    ul.g-list-rich {
+      color: #055266
+    }
+    ul.g-list-rich li {
+      color: #055266
+    }
+    /*无效*/
+    ul.g-list-rich li a {
+      color: #AFB4B8
+    }
+    /*有效*/
+    ul.g-list-rich li a:hover {
+      color: $color-global-purple
+    }
+    /*滑过状态*/
+    ul.g-list-rich li.cur a, ul.g-list-rich li.cur a:hover {
+      background-color: $color-global-purple;
+      color: #043947
+    }
+    /*选中状态*/
+    ul.g-list-rich, ul.g-list-rich li {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    ul.g-list-rich li {
+      display: inline-block;
+      line-height: 30px;
+      padding: 0 5px;
+      font-size: 12px
+    }
+    ul.g-list-rich li a {
+      cursor: pointer;
+      padding: 0 3px;
+      border-radius: 3px;
+      font-size: 12px
+    }
+    /*默认状态*/
+    /*下拉框 内容 均等列表类*/
+    ul.g-list-equal, ul.g-list-equal li {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    ul.g-list-equal li {
+      display: inline-block;
+      line-height: 25px;
+      min-width: 100px
+    }
+    ul.g-list-equal li a {
+      cursor: pointer;
+      padding: 0 3px;
+      border-radius: 3px
+    }
+    /*默认状态*/
+    ul.g-list-equal {
+      color: #055266
+    }
+    ul.g-list-equal li {
+      color: #055266
+    }
+    /*无效*/
+    ul.g-list-equal li a {
+      color: #f00
+    }
+    /*有效*/
+    ul.g-list-equal li a:hover {
+      color: $color-global-purple
+    }
+    /*滑过状态*/
+    ul.g-list-equal li.cur a, ul.g-list-equal li.cur a:hover {
+      background-color: $color-global-purple;
+      color: #0f0
+    }
+    /*选中状态*/
+    .wgt-dropdown .txt-container .dropdown-txt {
+      width: 525px !important;
+      max-height: 200px
+    }
+
+    .trade-top-info{
+      position:relative;
+      background: #272b34;
+      height:30px;
+      display flex
+      min-height 30px
+    }
+
+    .full-screen{
+      position absolute
+      right 20px
+      top 0
+      height 29px
+      line-height 29px
+      vertical-align middle
+      a{
+        display inline-block
+        font-size 12px
+        color #e5e5e5
+        vertical-align middle
+        &.unfold:hover{
+          color #7392ff
+        }
+      }
+    }
+      .number-font{
+        font-family: Roboto Mono,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+      }
+
+    .info-title {
+      height: 30px;
+      background #272b34
+      font-size: 12px;
+      line-height: 30px
+      min-height 30px
+      padding 0 5px
+      display flex
+      justify-content space-between
+      span {
+        display flex
+        color #aaabb1
+        padding 0 5px
+      }
+    }
+
+    /*///////////////////// 深度数据 /////////////////////*/
+    .wgt-depth-data {
+      width 100%
+    }
+    /*总尺寸*/
+    .wgt-depth-data .origin .above {
+      bottom: 25px
+    }
+    .wgt-depth-data .origin .middle {
+      height: 30px;
+      top: -15px
+    }
+    .wgt-depth-data .origin .below {
+      top: 25px
+    }
+    .wgt-depth-data .origin .middle {
+      color: #fff
+      .merge-depth{
+        display block
+        color #aaabb1
+        margin  5px 0
+        select{
+          background transparent
+          color #e5e5e5
+          border 1px solid #aaabb1
+          margin-left 2px
+          option{
+            color #666
+          }
+        }
+      }
+    }
+    .wgt-depth-data li {
+      color: #666
+    }
+    /*底层文本颜色*/
+    .wgt-depth-data li span i {
+      color: #ccc
+    }
+    /*有效文本颜色*/
+    /*层级*/
+    .wgt-depth-data {
+      position relative
+      width 100%
+      height 100%
+      overflow: hidden;
+    }
+    .wgt-depth-data .origin {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px
+    }
+    /*中心点*/
+    .wgt-depth-data .origin .above {
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+    .wgt-depth-data .origin .middle {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      font-size: 14px;
+      text-align: center
+    }
+    .wgt-depth-data .origin .below {
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+    .wgt-depth-data ul {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    .wgt-depth-data li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      line-height: 18px;
+      font-size: 12px
+    }
+    .wgt-depth-data li, .wgt-depth-data li i {
+      //font-family: Arial, "Microsoft YaHei"
+    }
+    .wgt-depth-data li span {
+      width 33.3%
+      padding 0 5px
+    }
+    .wgt-depth-data li span i {
+      font-style: normal;
+      padding: 0;
+      margin: 0
+    }
+    /*重写*/
+    .wgt-depth-data li.u {
+      color: #f00
+    }
+    .wgt-depth-data li.d {
+      color: #0f0
+    }
+    .wgt-depth-data .origin .middle {
+      color: #ccc
+    }
+    .wgt-depth-data .origin .middle span:nth-child(1) {
+      color: $color-global-buy
+    }
+    .wgt-depth-data .origin .middle span:nth-child(2) {
+      color: $color-global-middle-price
+    }
+    // .wgt-depth-data li{ color: #444; background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wgARCAABArwDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAWAQEBAQAAAAAAAAAAAAAAAAAABAX/2gAMAwEAAhADEAAAAJV7E4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//EABQQAQAAAAAAAAAAAAAAAAAAAGD/2gAIAQEAAT8AMf/EABQRAQAAAAAAAAAAAAAAAAAAAGD/2gAIAQIBAT8AMf/EABQRAQAAAAAAAAAAAAAAAAAAAGD/2gAIAQMBAT8AMf/Z"); background-repeat: repeat-y }    //底层文本颜色
+    .wgt-depth-data li span i {
+      color: #999
+    }
+    //有效文本颜色
+    .wgt-depth-data {
+      height 100%
+    }
+    /*纳入弹性盒子 与标题*/
+    // .wgt-depth-data .above li{ background-color:#572319 }
+    // .wgt-depth-data .below li{  }
+    .wgt-depth-data .above li span:nth-child(1) {
+      /*color: $color-global-buy*/
+      color: $color-global-sell
+    }
+    .wgt-depth-data .below li span:nth-child(1) {
+      /*color: #FC5953*/
+      color: $color-global-buy
+    }
+    .wgt-depth-data {
+      li {
+        position: relative;
+      }
+      .data-item {
+        position: relative;
+        z-index: 2;
+        display flex
+        padding 0 5px
+      }
+      .bg {
+        position: absolute;
+        right: 0px;
+        height: 100%;
+        width: 0%;
+        top: 0px;
+        transition width .5s;
+        z-index: 1;
+      }
+      .above {
+        .bg {
+          background: #572319
+          /*background $color-global-buy*/
+        }
+      }
+      .below {
+        .bg {
+          background: #1d4033
+         /* background $color-global-sell*/
+
+        }
+      }
+    }
+
+    /*总尺寸*/
+    .wgt-trades-data ul li span {
+
+      color: #666
+    }
+    /*底层文本颜色*/
+    .wgt-trades-data ul li span i {
+      color: #999
+    }
+    /*有效文本颜色*/
+    /*层级*/
+    .wgt-trades-data {
+      position: absolute;
+      top 35px
+      left 0
+      right 0
+      bottom 5px
+      z-index: 0;
+      overflow: hidden;
+    }
+    .wgt-trades-data ul, .wgt-trades-data li {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    .wgt-trades-data ul {
+
+    }
+    .wgt-trades-data ul li {
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 18px
+      display flex
+      padding 0 5px
+    }
+    .wgt-trades-data ul li span {
+      width 33.3%
+      font-style: normal;
+      //font-family: Arial, "Microsoft YaHei";
+      font-size: 12px
+      padding 0 5px
+    }
+    .wgt-trades-data ul li span i {
+      font-style: normal
+    }
+    .wgt-trades-data li.b {
+    }
+    .wgt-trades-data li.s {
+    }
+    /*重写*/
+    .wgt-trades-data ul li span {
+      color: #444
+    }
+    //底层文本颜色
+    .wgt-trades-data ul li span i {
+      color: #999
+    }
+    //有效文本颜色
+    .wgt-trades-data li.b span:nth-child(2) i, .wgt-trades-data li.u span:nth-child(3) i {
+      /*color: #FC5953*/
+      color: $color-global-buy
+    }
+    .wgt-trades-data li.s span:nth-child(2) i, .wgt-trades-data li.d span:nth-child(3) i {
+      color: $color-global-sell
+    }
+    /*///////////////////// 即时交易 /////////////////////*/
+    .wgt-transactor {
+      color: #ccc
+    }
+    .wgt-transactor .inputitem input {
+      border-color: #666
+    }
+    .wgt-transactor .total-item b {
+      color: #aaabb1
+      font-weight bold
+    }
+    .wgt-transactor .hook-rates {
+      color: #8fc8df
+    }
+    .wgt-transactor .hook-rates .span-rates {
+      background-color: #666
+    }
+    .wgt-transactor .hook-rates .span-rate-total {
+      background-color: #666
+    }
+    .wgt-transactor .hook-canuse-amount {
+      color: #f00
+    }
+    .wgt-transactor .subbtn {
+      background-color: #999;
+      color: #fff
+    }
+    /*层级*/
+    .wgt-transactor {
+      width: 100%;
+      font-size: 12px;
+      text-align: left;
+      border: #f00 0px solid
+    }
+    .wgt-transactor .hook-canuse-amount {
+      font-weight: bold;
+      font-size: 12px
+    }
+    .wgt-transactor .list {
+      padding: 5px 0
+    }
+    .wgt-transactor .inputitem {
+      position: relative
+    }
+    .wgt-transactor .inputitem span {
+      opacity: 0.7;
+      line-height: 30px;
+      padding-left: 15px;
+      font-weight: bold
+    }
+    .wgt-transactor .inputitem input {
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+    .wgt-transactor .inputitem input {
+      width: 100%;
+      height: 30px;
+      box-sizing: border-box;
+      padding: 0 15px
+    }
+    .wgt-transactor .inputitem input {
+      font-size: 14px;
+      text-align: right;
+      color: #fff;
+      font-weight: bold;
+      outline: 0 none;
+      background: transparent
+    }
+    .wgt-transactor .inputitem input {
+      border-width: 1px;
+      border-style: solid
+    }
+    .wgt-transactor .subbtn {
+      width: 100%;
+      line-height: 30px;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      outline: none
+    }
+    .wgt-transactor .total-item {
+      position: relative;
+      line-height: 16px;
+      font-size: 12px
+    }
+    .wgt-transactor .total-item b {
+      position: absolute;
+
+      width: 130px;
+      text-align: right;
+      background-color: transparent;
+      outline: none;
+      border: 0
+    }
+    .wgt-transactor .total-item span {
+      position: absolute;
+      top: 5px;
+      right: 0
+    }
+    .wgt-transactor .hook-rates {
+      display: block;
+      font-size: 12px;
+      text-align: right;
+      line-height: 14px
+    }
+    .wgt-transactor .hook-rates span {
+      display: inline-block;
+      padding: 2px 5px 1px 5px;
+      border-radius: 10px
+    }
+    .wgt-transactor .hook-rates .span-rates:before {
+      content: '费率:';
+    }
+    .wgt-transactor .hook-rates .span-rate-total:before {
+      content: '手续费:';
+    }
+    /*总费用*/
+    .wgt-transactor.active .subbtn {
+      cursor: pointer;
+      border-radius: 3px
+    }
+    /*////滑块////*/
+    .level-slider .data, .level-slider .data .pointer li {
+      background-color: #ccc
+    }
+    .level-slider .data .line-active, .level-slider .data .pointer li.cover {
+      background-color: #0f0
+    }
+    .level-slider .data .btn-slider:before {
+      background: #ffa800
+    }
+    /*层级*/
+    .level-slider {
+      width: 160px
+    }
+    .level-slider .data {
+      height: 2px
+    }
+    /*数据条*/
+    .level-slider .data .line-active div {
+      color: #ccc;
+      top: 10px
+    }
+    .level-slider .data .pointer li:before {
+      width: 8px;
+      height: 8px;
+      left: -4px;
+      top: -4px
+    }
+    .level-slider .data .pointer li:nth-child(1):before, .level-slider .data .pointer li:last-child:before {
+      width: 10px;
+      height: 10px;
+      left: -5px;
+      top: -5px
+    }
+    .level-slider .data .btn-slider:before {
+      width: 14px;
+      height: 14px;
+      left: -7px;
+      top: -7px
+    }
+    .level-slider {
+      position: relative;
+      padding: 10px 0;
+      margin: auto
+    }
+    .level-slider .data {
+      width: 100%;
+      position: relative
+    }
+    .level-slider .data .line-active {
+      width: 10%;
+      height: 100%;
+      display: block;
+      position: relative
+    }
+    //数据条
+    .level-slider .data .line-active div {
+      width: 60px;
+      position: absolute;
+      right: -30px;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center
+    }
+    .level-slider .data .pointer {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+    .level-slider .data .pointer li {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      top: 50%
+    }
+    .level-slider .data .pointer li:before {
+      content: '';
+      position: absolute;
+      background: inherit;
+      border-radius: 50%
+    }
+    .level-slider .data .pointer li:nth-child(1) {
+      left: 0
+    }
+    .level-slider .data .pointer li:nth-child(2) {
+      left: 25%
+    }
+    .level-slider .data .pointer li:nth-child(3) {
+      left: 50%
+    }
+    .level-slider .data .pointer li:nth-child(4) {
+      left: 75%
+    }
+    .level-slider .data .pointer li:nth-child(5) {
+      left: 100%
+    }
+    .level-slider .data .btn-slider {
+      height: 1px;
+      width: 1px;
+      position: absolute;
+      left: 10%;
+      top: 50%
+    }
+    //滑块
+    .level-slider .data .btn-slider:before {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      position: absolute
+    }
+    .level-slider ul, .level-slider ul li {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+    /*重写*/
+    .wgt-transactor {
+      color: #444
+    }
+    .wgt-transactor .inputitem:before {
+      background: #f00
+    }
+    .wgt-transactor .inputitem:after {
+      background: #0f0
+    }
+    .wgt-transactor .inputitem input {
+      border-color: #444;
+      color: #444
+    }
+    .wgt-transactor .hook-rates {
+      color: #333
+    }
+    .wgt-transactor .hook-rates .span-rates {
+      background-color: #444
+    }
+    .wgt-transactor .hook-rates .span-rate-total {
+      background-color: #444
+    }
+    .wgt-transactor .hook-canuse-amount {
+      color: #444
+    }
+    .wgt-transactor .subbtn {
+      background-color: #444;
+      color: #333
+    }
+    /*即时交易 滑块*/
+    .level-slider .data, .level-slider .data .pointer li {
+      background-color: #444
+    }
+    .level-slider .data .btn-slider:before {
+      background: #444
+    }
+    .wgt-transactor .level-slider .data .line-active,
+    .wgt-transactor .level-slider .data .pointer li.cover {
+     // background-color: $cl3
+    }
+    /*即时交易 激活*/
+    .wgt-transactor.active {
+      color: #A0AAAA
+    }
+    .wgt-transactor.active .inputitem input {
+      color: #A0AAAA
+    }
+    .wgt-transactor.active .total-item input {
+      color: #A0AAAA
+    }
+    #hook-transactor-buy.active .hook-canuse-amount {
+      color: $color-global-buy
+    }
+    #hook-transactor-sell.active .hook-canuse-amount {
+      color: $color-global-sell
+    }
+    #hook-transactor-buy.active .subbtn {
+      background-color: $color-global-buy;
+
+      //background-color:#f61f4c;
+      color: #fff
+    }
+    #hook-transactor-buy.active .subbtn:disabled{
+      opacity .7
+    }
+    #hook-transactor-sell.active .subbtn {
+      background-color: $color-global-sell;
+      //background-color:#0bb474;
+
+      color: #fff
+    }
+    #hook-transactor-sell.active .subbtn:disabled{
+      opacity .7
+    }
+    .wgt-transactor.active .level-slider .data .btn-slider:before {
+      background: #999
+    }
+    #hook-transactor-buy .level-slider .data .line-active,
+    #hook-transactor-buy .level-slider .data .pointer li.cover {
+      background-color: #fb3253
+    }
+    #hook-transactor-sell .level-slider .data .line-active,
+    #hook-transactor-sell .level-slider .data .pointer li.cover {
+      background-color: #15af4f
+    }
+    .wgt-transactor.active .hook-rates .span-rates {
+      background-color: #666
+    }
+    .wgt-transactor.active .hook-rates .span-rate-total {
+      background-color: #666
+    }
+    //新滑块
+    .el-slider__button-wrapper {
+      width: 24px;
+      height: 24px;
+      top: -11px
+    }
+    .el-slider__runway {
+      height: 2px;
+      background: #444;
+      margin: 0 0
+    }
+    .el-slider__runway .el-slider__button {
+      width: 14px;
+      height: 14px;
+      border: 0;
+      background-color: #f90
+    }
+    .el-slider__runway.disabled .el-slider__button {
+      background-color: #444 !important
+    }
+    .el-slider__bar {
+      height: 2px;
+      background-color: #444
+    }
+    .el-slider:after, .el-slider:before {
+      display: none
+    }
+    #hook-transactor-buy .el-slider__runway .el-slider__button {
+      background-color: $color-global-buy
+    }
+    #hook-transactor-sell .el-slider__runway .el-slider__button {
+      background-color: $color-global-sell
+    }
+    #hook-transactor-buy .el-slider__bar {
+      background-color: $color-global-buy
+    }
+    #hook-transactor-sell .el-slider__bar {
+      background-color: $color-global-sell
+    }
+
+
+  @media (max-width: 1365px) {
+    .trading-view{
+      .trading-header{
+        padding 0 !important
+      }
+
+      .trading-container{
+
+        .trading-wrap{
+
+          .trading-market{
+            &.two{
+              width 500px !important
+              .trade-box{
+                width 250px !important
+              }
+            }
+          }
+        }
+      }
+    }
+  }
