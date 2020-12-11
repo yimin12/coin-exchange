@@ -1,7 +1,7 @@
 # coin_exchange
 
 #### 介绍
-The java-based coin exchange platform
+基于Java 开发的货币交易所| BTC 交易所| ETH 交易所| 数字货币交易所| 交易平台| 撮合交易引擎
 
 #### 软件架构
 软件架构说明
