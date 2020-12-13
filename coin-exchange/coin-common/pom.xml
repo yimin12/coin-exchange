@@ -47,7 +47,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
         <!--        redis 操作-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -83,7 +82,6 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
-
         <!--mapStruct依赖 高性能对象映射-->
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -93,7 +91,6 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
-
         <!--        配置文件处理-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

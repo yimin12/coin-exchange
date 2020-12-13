@@ -1,0 +1,74 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-server:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # use the gateway auto discovery
+          lower-case-service-id: true
+      routes:
+        - id: admin-service-router  # /admin/** ---> admin-service
+          uri: lb://admin-service  # redirect to the destination in load balance way
+          predicates:
+            - Path=/admin/** # if the prefix is /admin/, send the query to admin-server
+        - id: member-service-router # /member/** ---> member-service
+          uri: lb://member-service
+          predicates:
+            - Path=/member/**
+        - id: finance-service-router # /finance/** ---> finance-service
+          uri: lb://finance-service
+          predicates:
+            - Path=/finance/**
+        - id: chan-service-router # /chan/**--->chan-service
+          uri: lb://chan-service
+          predicates:
+            - Path=/chan/**
+        - id: statistics-service-router # /statistics/**--->statistics-service
+          uri: lb://statistics-service
+          predicates:
+            - Path=/statistics/**
+        - id: match-service-router # /match/**--->match-service
+          uri: lb://match-service
+          predicates:
+            - Path=/match/**
+        - id: exchange-service-router # /exchange/**--->exchange-service
+          uri: lb://exchange-service
+          predicates:
+            - Path=/match/**
+        - id: test_router
+          uri: http://www.aliyun.com
+          predicates:
+            - Path=/product
+            # /test -> http://www.google.com will be transferred to GET:http://www.google.com/test
+            # /product -> GET:http://www.aliyun.com/product
+
+    # rate limited by gateway's sentinel. Totally two dimension: Gateway dimension and api grouping dimension
+    sentinel:
+      transport:
+        dashboard: sentinel-server:8858  # sentinel-dashboard 放在ecs 里面
+      datasource:
+#        ds1.file:
+#          file: classpath:gw-flow.json # gateway dimension
+#          ruleType: gw_flow
+#        serialize the configuration to nacos
+        ds1.nacos: #com.alibaba.csp.sentinel.datasource.nacos.NacosDataSource 使用Nacos持久化我的sentinel 数据时，需要添加nacos-datasource的依赖
+          serverAddr: nacos-server:8848
+          dataId: gw-flow
+          ruleType: gw_flow
+#        ds2.file:
+#          file: classpath:api-group.json #api-flow.json, divided by api
+#          ruleType: gw_api_group
+        ds2.nacos:
+          serverAddr: nacos-server:8848
+          dataId: api-group
+          ruleType: gw_api_group
+  redis:
+    host: redis-server
+    port: 6380
+    password: huangyimin159??
