@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinWithdrawAuditRecordMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinWithdrawAuditRecord">
+    <!--@mbg.generated-->
+    <!--@Table coin_withdraw_audit_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+    <result column="step" jdbcType="TINYINT" property="step" />
+    <result column="audit_user_id" jdbcType="BIGINT" property="auditUserId" />
+    <result column="audit_user_name" jdbcType="VARCHAR" property="auditUserName" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, `status`, remark, step, audit_user_id, audit_user_name, created
+  </sql>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.SysMenu">
+    <!--@mbg.generated-->
+    <!--@Table sys_menu-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="parent_key" jdbcType="VARCHAR" property="parentKey" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, parent_id, parent_key, `type`, `name`, `desc`, target_url, sort, `status`, create_by, 
+    modify_by, created, last_update_time
+  </sql>
+  <select id="selectMenusByUserId" resultMap="BaseResultMap">
+        SELECT
+            m.id, m.parent_id, m.parent_key, m.`type`, m.`name`, m.`desc`, m.target_url, m.sort, m.`status`,
+            m.create_by, m.modify_by, m.created, m.last_update_time
+        FROM sys_menu as m
+            LEFT JOIN sys_role_menu as rm ON rm.menu_id = m.id
+            LEFT JOIN sys_user_role as ur ON ur.role_id = rm.role_id
+        WHERE
+            ur.user_id = #{userId}
+  </select>
+</mapper>

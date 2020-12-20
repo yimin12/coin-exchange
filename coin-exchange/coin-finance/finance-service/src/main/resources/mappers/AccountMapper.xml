@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.Account">
+    <!--@mbg.generated-->
+    <!--@Table account-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="balance_amount" jdbcType="DECIMAL" property="balanceAmount" />
+    <result column="freeze_amount" jdbcType="DECIMAL" property="freezeAmount" />
+    <result column="recharge_amount" jdbcType="DECIMAL" property="rechargeAmount" />
+    <result column="withdrawals_amount" jdbcType="DECIMAL" property="withdrawalsAmount" />
+    <result column="net_value" jdbcType="DECIMAL" property="netValue" />
+    <result column="lock_margin" jdbcType="DECIMAL" property="lockMargin" />
+    <result column="float_profit" jdbcType="DECIMAL" property="floatProfit" />
+    <result column="total_profit" jdbcType="DECIMAL" property="totalProfit" />
+    <result column="rec_addr" jdbcType="VARCHAR" property="recAddr" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, `status`, balance_amount, freeze_amount, recharge_amount, withdrawals_amount, 
+    net_value, lock_margin, float_profit, total_profit, rec_addr, version, last_update_time, 
+    created
+  </sql>
+</mapper>

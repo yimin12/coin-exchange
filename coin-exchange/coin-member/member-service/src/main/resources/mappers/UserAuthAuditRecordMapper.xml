@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.UserAuthAuditRecordMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.UserAuthAuditRecord">
+    <!--@mbg.generated-->
+    <!--@Table user_auth_audit_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="auth_code" jdbcType="BIGINT" property="authCode" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="step" jdbcType="TINYINT" property="step" />
+    <result column="audit_user_id" jdbcType="BIGINT" property="auditUserId" />
+    <result column="audit_user_name" jdbcType="VARCHAR" property="auditUserName" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, auth_code, user_id, `status`, remark, step, audit_user_id, audit_user_name, created
+  </sql>
+</mapper>

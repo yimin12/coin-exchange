@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: admin-service
+  cloud: # nacos 地址
+    nacos:
+      server-addr: nacos-server:8848
+      config:
+        file-extension: yaml
+  profiles:
+    active: dev
+# 拉取配置文件的dataID = admin-service-dev.yaml

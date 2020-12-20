@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-server:3307/coin_exchange
+    username: root
+    password: huangyimin159??
+  cloud:
+    sentinel:
+      transport:
+        dashboard: sentinel-server:8858
+  redis:
+    host: redis-server
+    port: 6380
+    password: huangyimin159??
+
+swagger2:
+  name: yiminhuang
+  url: https://github.com/yimin12
+  email: hymlaucs@gmail.com
+  title: Coin-common model test
+  description: Coin-Common
+  version: 2.0
+  termsOfServiceUrl: www.google.com
+  base-package: com.yimin.controller
+
+mybatis-plus:
+  mapper-locations: classpath:/mappers/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台的日志输出
+
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local: # 本地的缓存实现
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
+  remote: # 远程的缓存实现
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      poolConfig: # 连接池的配置
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: ${spring.redis.host}
+      port: ${spring.redis.port}
+      password: ${spring.redis.password}

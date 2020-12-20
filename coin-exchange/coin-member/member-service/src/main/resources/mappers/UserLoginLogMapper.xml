@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.UserLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.UserLoginLog">
+    <!--@mbg.generated-->
+    <!--@Table user_login_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="client_type" jdbcType="TINYINT" property="clientType" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_address" jdbcType="VARCHAR" property="loginAddress" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, client_type, login_ip, login_address, login_time
+  </sql>
+</mapper>

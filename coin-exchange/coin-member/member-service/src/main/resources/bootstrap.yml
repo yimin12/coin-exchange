@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: member-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: nacos-server:8848
+      config:
+        file-extension: yaml
+#    去 nacos-server里面拉取的文件名称为： member-service-dev.yaml
+
+

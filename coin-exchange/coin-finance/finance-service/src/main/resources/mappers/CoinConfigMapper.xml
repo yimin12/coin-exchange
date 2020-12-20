@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinConfigMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinConfig">
+    <!--@mbg.generated-->
+    <!--@Table coin_config-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="coin_type" jdbcType="VARCHAR" property="coinType" />
+    <result column="credit_limit" jdbcType="DECIMAL" property="creditLimit" />
+    <result column="credit_max_limit" jdbcType="DECIMAL" property="creditMaxLimit" />
+    <result column="rpc_ip" jdbcType="VARCHAR" property="rpcIp" />
+    <result column="rpc_port" jdbcType="VARCHAR" property="rpcPort" />
+    <result column="rpc_user" jdbcType="VARCHAR" property="rpcUser" />
+    <result column="rpc_pwd" jdbcType="VARCHAR" property="rpcPwd" />
+    <result column="last_block" jdbcType="VARCHAR" property="lastBlock" />
+    <result column="wallet_user" jdbcType="VARCHAR" property="walletUser" />
+    <result column="wallet_pass" jdbcType="VARCHAR" property="walletPass" />
+    <result column="contract_address" jdbcType="VARCHAR" property="contractAddress" />
+    <result column="context" jdbcType="VARCHAR" property="context" />
+    <result column="min_confirm" jdbcType="INTEGER" property="minConfirm" />
+    <result column="task" jdbcType="VARCHAR" property="task" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="auto_draw_limit" jdbcType="DECIMAL" property="autoDrawLimit" />
+    <result column="auto_draw" jdbcType="INTEGER" property="autoDraw" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, coin_type, credit_limit, credit_max_limit, rpc_ip, rpc_port, rpc_user, 
+    rpc_pwd, last_block, wallet_user, wallet_pass, contract_address, context, min_confirm, 
+    task, `status`, auto_draw_limit, auto_draw
+  </sql>
+</mapper>

@@ -26,19 +26,20 @@ public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor(){
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-        paginationInterceptor.setDbType(DbType.MYSQL);
-        return paginationInterceptor;
+        paginationInterceptor.setDbType(DbType.MYSQL) ;
+        return paginationInterceptor ;
     }
 
     /**
      * 乐观锁
+     * @Version
      */
+
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor(){
         OptimisticLockerInterceptor optimisticLockerInterceptor = new OptimisticLockerInterceptor();
-        return optimisticLockerInterceptor;
+        return optimisticLockerInterceptor ;
     }
-
     /**
      * 主键序列的生成
      * ID_WORK 数字
@@ -47,6 +48,6 @@ public class MybatisPlusConfig {
     @Bean
     public IKeyGenerator iKeyGenerator(){
         H2KeyGenerator h2KeyGenerator = new H2KeyGenerator();
-        return h2KeyGenerator;
+        return h2KeyGenerator ;
     }
 }

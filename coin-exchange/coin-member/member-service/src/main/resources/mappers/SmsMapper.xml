@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.SmsMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.Sms">
+    <!--@mbg.generated-->
+    <!--@Table sms-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="template_code" jdbcType="VARCHAR" property="templateCode" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, template_code, country_code, mobile, content, `status`, remark, last_update_time, 
+    created
+  </sql>
+</mapper>

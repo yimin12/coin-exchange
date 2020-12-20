@@ -38,7 +38,10 @@
         <joda-time.version>2.10</joda-time.version>
         <okhttp.version>3.11.0</okhttp.version>
         <okio.version>1.15.0</okio.version>
-        <hutool.version>4.1.2</hutool.version>
+        <hutool.version>5.1.1</hutool.version>
+        <csv.version>2.4.0</csv.version>
+        <affinity.version>3.1.7</affinity.version>
+        <tio.version>3.5.5.v20191010-RELEASE</tio.version>
     </properties>
 
     <dependencies>
@@ -199,6 +202,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.t-io</groupId>
+                <artifactId>tio-websocket-spring-boot-starter</artifactId>
+                <version>${tio.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

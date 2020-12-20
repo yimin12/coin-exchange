@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.ForexOpenPositionOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.ForexOpenPositionOrder">
+    <!--@mbg.generated-->
+    <!--@Table forex_open_position_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="market_id" jdbcType="BIGINT" property="marketId" />
+    <result column="market_name" jdbcType="VARCHAR" property="marketName" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="account_id" jdbcType="BIGINT" property="accountId" />
+    <result column="entrust_order_id" jdbcType="BIGINT" property="entrustOrderId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="num" jdbcType="DECIMAL" property="num" />
+    <result column="lock_margin" jdbcType="DECIMAL" property="lockMargin" />
+    <result column="close_num" jdbcType="DECIMAL" property="closeNum" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, market_id, market_name, coin_id, `type`, account_id, entrust_order_id, 
+    order_id, price, num, lock_margin, close_num, `status`, last_update_time, created
+  </sql>
+</mapper>

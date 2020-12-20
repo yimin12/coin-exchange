@@ -17,14 +17,26 @@ spring:
           uri: lb://admin-service  # redirect to the destination in load balance way
           predicates:
             - Path=/admin/** # if the prefix is /admin/, send the query to admin-server
+          filters:
+            - StripPrefix=1  # 当前端访问/admin/login -> 网关自动帮你把前缀第一个路径去掉， -> /admin/login -> login 将admin去掉
         - id: member-service-router # /member/** ---> member-service
           uri: lb://member-service
           predicates:
-            - Path=/member/**
-        - id: finance-service-router # /finance/** ---> finance-service
-          uri: lb://finance-service
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: finance-service_router
+          uri: lb://finance-service # 转发到那个目的地
           predicates:
             - Path=/finance/**
+          filters:
+            - StripPrefix=1 # 当前端访问/finance/xx 去掉finance
+        - id: exchange-service-router # /exchange/**--->exchange-service 交易系统的路由
+          uri: lb://exchange-service
+          predicates:
+            - Path=/exchange/**
+          filters:
+            - StripPrefix=1
         - id: chan-service-router # /chan/**--->chan-service
           uri: lb://chan-service
           predicates:
@@ -37,14 +49,11 @@ spring:
           uri: lb://match-service
           predicates:
             - Path=/match/**
-        - id: exchange-service-router # /exchange/**--->exchange-service
-          uri: lb://exchange-service
-          predicates:
-            - Path=/match/**
-        - id: test_router
-          uri: http://www.aliyun.com
-          predicates:
-            - Path=/product
+
+#        - id: test_router
+#          uri: http://www.aliyun.com
+#          predicates:
+#            - Path=/product
             # /test -> http://www.google.com will be transferred to GET:http://www.google.com/test
             # /product -> GET:http://www.aliyun.com/product
 

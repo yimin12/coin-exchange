@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.MarketMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.Market">
+    <!--@mbg.generated-->
+    <!--@Table market-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="trade_area_id" jdbcType="BIGINT" property="tradeAreaId" />
+    <result column="sell_coin_id" jdbcType="BIGINT" property="sellCoinId" />
+    <result column="buy_coin_id" jdbcType="BIGINT" property="buyCoinId" />
+    <result column="symbol" jdbcType="VARCHAR" property="symbol" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="open_price" jdbcType="DECIMAL" property="openPrice" />
+    <result column="fee_buy" jdbcType="DECIMAL" property="feeBuy" />
+    <result column="fee_sell" jdbcType="DECIMAL" property="feeSell" />
+    <result column="margin_rate" jdbcType="DECIMAL" property="marginRate" />
+    <result column="num_min" jdbcType="DECIMAL" property="numMin" />
+    <result column="num_max" jdbcType="DECIMAL" property="numMax" />
+    <result column="trade_min" jdbcType="DECIMAL" property="tradeMin" />
+    <result column="trade_max" jdbcType="DECIMAL" property="tradeMax" />
+    <result column="price_scale" jdbcType="TINYINT" property="priceScale" />
+    <result column="num_scale" jdbcType="TINYINT" property="numScale" />
+    <result column="contract_unit" jdbcType="INTEGER" property="contractUnit" />
+    <result column="point_value" jdbcType="DECIMAL" property="pointValue" />
+    <result column="merge_depth" jdbcType="VARCHAR" property="mergeDepth" />
+    <result column="trade_time" jdbcType="VARCHAR" property="tradeTime" />
+    <result column="trade_week" jdbcType="VARCHAR" property="tradeWeek" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="fxcm_symbol" jdbcType="VARCHAR" property="fxcmSymbol" />
+    <result column="yahoo_symbol" jdbcType="VARCHAR" property="yahooSymbol" />
+    <result column="aliyun_symbol" jdbcType="VARCHAR" property="aliyunSymbol" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, trade_area_id, sell_coin_id, buy_coin_id, symbol, `name`, title, img, 
+    open_price, fee_buy, fee_sell, margin_rate, num_min, num_max, trade_min, trade_max, 
+    price_scale, num_scale, contract_unit, point_value, merge_depth, trade_time, trade_week, 
+    sort, `status`, fxcm_symbol, yahoo_symbol, aliyun_symbol, last_update_time, created
+  </sql>
+</mapper>

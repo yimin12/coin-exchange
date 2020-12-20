@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.SysRoleMenuMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.SysRoleMenu">
+    <!--@mbg.generated-->
+    <!--@Table sys_role_menu-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="menu_id" jdbcType="BIGINT" property="menuId" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, role_id, menu_id, create_by, modify_by, created, last_update_time
+  </sql>
+</mapper>

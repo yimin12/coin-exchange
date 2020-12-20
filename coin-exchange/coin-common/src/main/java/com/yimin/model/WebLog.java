@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  *       elk
  */
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class WebLog {
     /**
      * 操作描述

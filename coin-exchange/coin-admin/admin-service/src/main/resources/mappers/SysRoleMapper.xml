@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.SysRole">
+    <!--@mbg.generated-->
+    <!--@Table sys_role-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="modify_by" jdbcType="BIGINT" property="modifyBy" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, code, description, create_by, modify_by, `status`, created, last_update_time
+  </sql>
+  <select id="getUserRoleCode" resultType="java.lang.String">
+    SELECT
+    	r.`code` FROM sys_role AS r LEFT JOIN sys_user_role as u on r.id = u.role_id
+    WHERE
+	    u.user_id = #{userId}
+  </select>
+</mapper>

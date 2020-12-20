@@ -20,17 +20,17 @@ public class RedisConfig {
      * RedisTemplate
      */
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
-        // redis key's serialization
+        // redis key的序列化
         StringRedisSerializer keyRedisSerializer = new StringRedisSerializer();
-        // redis value's serialization
+        // redis value的序列化
         GenericJackson2JsonRedisSerializer valueRedisSerializer = new GenericJackson2JsonRedisSerializer();
         redisTemplate.setKeySerializer(keyRedisSerializer);
         redisTemplate.setValueSerializer(valueRedisSerializer);
         redisTemplate.setHashKeySerializer(keyRedisSerializer);
         redisTemplate.setHashValueSerializer(valueRedisSerializer);
-        return redisTemplate;
+        return redisTemplate ;
     }
 }

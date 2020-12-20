@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CashRechargeMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CashRecharge">
+    <!--@mbg.generated-->
+    <!--@Table cash_recharge-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="num" jdbcType="DECIMAL" property="num" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="feecoin" jdbcType="VARCHAR" property="feecoin" />
+    <result column="mum" jdbcType="DECIMAL" property="mum" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="tradeno" jdbcType="VARCHAR" property="tradeno" />
+    <result column="outtradeno" jdbcType="VARCHAR" property="outtradeno" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="audit_remark" jdbcType="VARCHAR" property="auditRemark" />
+    <result column="step" jdbcType="TINYINT" property="step" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="bank_card" jdbcType="VARCHAR" property="bankCard" />
+    <result column="last_time" jdbcType="TIMESTAMP" property="lastTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, coin_name, num, fee, feecoin, mum, `type`, tradeno, outtradeno, 
+    remark, audit_remark, step, `status`, created, last_update_time, `name`, bank_name, 
+    bank_card, last_time
+  </sql>
+</mapper>

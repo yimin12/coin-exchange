@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.EntrustOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.EntrustOrder">
+    <!--@mbg.generated-->
+    <!--@Table entrust_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="market_id" jdbcType="BIGINT" property="marketId" />
+    <result column="market_type" jdbcType="TINYINT" property="marketType" />
+    <result column="symbol" jdbcType="VARCHAR" property="symbol" />
+    <result column="market_name" jdbcType="VARCHAR" property="marketName" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="merge_low_price" jdbcType="DECIMAL" property="mergeLowPrice" />
+    <result column="merge_high_price" jdbcType="DECIMAL" property="mergeHighPrice" />
+    <result column="volume" jdbcType="DECIMAL" property="volume" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="fee_rate" jdbcType="DECIMAL" property="feeRate" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="contract_unit" jdbcType="INTEGER" property="contractUnit" />
+    <result column="deal" jdbcType="DECIMAL" property="deal" />
+    <result column="freeze" jdbcType="DECIMAL" property="freeze" />
+    <result column="margin_rate" jdbcType="DECIMAL" property="marginRate" />
+    <result column="base_coin_rate" jdbcType="DECIMAL" property="baseCoinRate" />
+    <result column="price_coin_rate" jdbcType="DECIMAL" property="priceCoinRate" />
+    <result column="lock_margin" jdbcType="DECIMAL" property="lockMargin" />
+    <result column="price_type" jdbcType="TINYINT" property="priceType" />
+    <result column="trade_type" jdbcType="TINYINT" property="tradeType" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="open_order_id" jdbcType="BIGINT" property="openOrderId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, market_id, market_type, symbol, market_name, price, merge_low_price, 
+    merge_high_price, volume, amount, fee_rate, fee, contract_unit, deal, `freeze`, margin_rate, 
+    base_coin_rate, price_coin_rate, lock_margin, price_type, trade_type, `type`, open_order_id, 
+    `status`, last_update_time, created
+  </sql>
+</mapper>

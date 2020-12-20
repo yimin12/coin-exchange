@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CashWithdrawalsMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CashWithdrawals">
+    <!--@mbg.generated-->
+    <!--@Table cash_withdrawals-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="account_id" jdbcType="BIGINT" property="accountId" />
+    <result column="num" jdbcType="DECIMAL" property="num" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="mum" jdbcType="DECIMAL" property="mum" />
+    <result column="truename" jdbcType="VARCHAR" property="truename" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="bank_prov" jdbcType="VARCHAR" property="bankProv" />
+    <result column="bank_city" jdbcType="VARCHAR" property="bankCity" />
+    <result column="bank_addr" jdbcType="VARCHAR" property="bankAddr" />
+    <result column="bank_card" jdbcType="VARCHAR" property="bankCard" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="step" jdbcType="TINYINT" property="step" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="last_time" jdbcType="TIMESTAMP" property="lastTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, account_id, num, fee, mum, truename, bank, bank_prov, bank_city, 
+    bank_addr, bank_card, remark, step, `status`, created, last_update_time, last_time
+  </sql>
+</mapper>

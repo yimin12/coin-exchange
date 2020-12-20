@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.TurnoverRecordMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.TurnoverRecord">
+    <!--@mbg.generated-->
+    <!--@Table turnover_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="market_id" jdbcType="BIGINT" property="marketId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="volume" jdbcType="DECIMAL" property="volume" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, market_id, price, volume, created
+  </sql>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.TradeAreaMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.TradeArea">
+    <!--@mbg.generated-->
+    <!--@Table trade_area-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="sort" jdbcType="TINYINT" property="sort" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="base_coin" jdbcType="BIGINT" property="baseCoin" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, code, `type`, coin_id, coin_name, sort, `status`, base_coin, last_update_time, 
+    created
+  </sql>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.AccountDetailMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.AccountDetail">
+    <!--@mbg.generated-->
+    <!--@Table account_detail-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="account_id" jdbcType="BIGINT" property="accountId" />
+    <result column="ref_account_id" jdbcType="BIGINT" property="refAccountId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="direction" jdbcType="BOOLEAN" property="direction" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, account_id, ref_account_id, order_id, direction, business_type, 
+    amount, fee, remark, created
+  </sql>
+</mapper>

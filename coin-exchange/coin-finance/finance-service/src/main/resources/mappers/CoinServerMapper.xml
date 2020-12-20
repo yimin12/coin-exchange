@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinServerMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinServer">
+    <!--@mbg.generated-->
+    <!--@Table coin_server-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="rpc_ip" jdbcType="VARCHAR" property="rpcIp" />
+    <result column="rpc_port" jdbcType="VARCHAR" property="rpcPort" />
+    <result column="running" jdbcType="INTEGER" property="running" />
+    <result column="wallet_number" jdbcType="BIGINT" property="walletNumber" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="mark" jdbcType="VARCHAR" property="mark" />
+    <result column="real_number" jdbcType="BIGINT" property="realNumber" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, rpc_ip, rpc_port, running, wallet_number, coin_name, mark, real_number, last_update_time, 
+    created
+  </sql>
+</mapper>

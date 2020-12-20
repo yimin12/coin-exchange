@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.ForexAccountMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.ForexAccount">
+    <!--@mbg.generated-->
+    <!--@Table forex_account-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="market_id" jdbcType="BIGINT" property="marketId" />
+    <result column="market_name" jdbcType="VARCHAR" property="marketName" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="lock_amount" jdbcType="DECIMAL" property="lockAmount" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, market_id, market_name, `type`, amount, lock_amount, `status`, last_update_time, 
+    created
+  </sql>
+</mapper>

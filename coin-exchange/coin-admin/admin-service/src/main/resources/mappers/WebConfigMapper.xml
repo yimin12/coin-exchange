@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.WebConfigMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.WebConfig">
+    <!--@mbg.generated-->
+    <!--@Table web_config-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="value" jdbcType="LONGVARCHAR" property="value" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="url" jdbcType="LONGVARCHAR" property="url" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, `name`, `value`, sort, created, url, `status`
+  </sql>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinBalanceMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinBalance">
+    <!--@mbg.generated-->
+    <!--@Table coin_balance-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="system_balance" jdbcType="DECIMAL" property="systemBalance" />
+    <result column="coin_type" jdbcType="VARCHAR" property="coinType" />
+    <result column="collect_account_balance" jdbcType="DECIMAL" property="collectAccountBalance" />
+    <result column="loan_account_balance" jdbcType="DECIMAL" property="loanAccountBalance" />
+    <result column="fee_account_balance" jdbcType="DECIMAL" property="feeAccountBalance" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="recharge_account_balance" jdbcType="DECIMAL" property="rechargeAccountBalance" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, coin_id, coin_name, system_balance, coin_type, collect_account_balance, loan_account_balance, 
+    fee_account_balance, last_update_time, created, recharge_account_balance
+  </sql>
+</mapper>

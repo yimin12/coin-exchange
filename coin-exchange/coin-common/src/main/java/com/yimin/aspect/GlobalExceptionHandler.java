@@ -9,7 +9,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 /*
  *   @Author : Yimin Huang
  *   @Contact : hymlaucs@gmail.com
@@ -22,16 +21,14 @@ public class GlobalExceptionHandler {
 
     /**
      * 1 内部API调用的异常处理
-     * @param exception
-     * @return
      */
     @ExceptionHandler(value = ApiException.class)
     public R handlerApiException(ApiException exception){
         IErrorCode errorCode = exception.getErrorCode();
-        if(errorCode != null){
-            return R.fail(errorCode);
+        if(errorCode!=null){
+            return R.fail(errorCode) ;
         }
-        return R.fail(exception.getMessage());
+        return R.fail(exception.getMessage()) ;
     }
 
     /**
@@ -44,25 +41,26 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = exception.getBindingResult();
         if(bindingResult.hasErrors()){
             FieldError fieldError = bindingResult.getFieldError();
-            if(fieldError != null){
-                return R.fail(fieldError.getField() + fieldError.getDefaultMessage());
+            if(fieldError!=null){
+                return R.fail(fieldError.getField()+fieldError.getDefaultMessage()) ;
             }
         }
-        return R.fail(exception.getMessage());
+        return R.fail(exception.getMessage()) ;
     }
 
     /**
      * 3 对象内部使用Validate 没有校验成功的异常
      */
-    public R handlerBindException(BindException exception){
-        BindingResult bindingResult = exception.getBindingResult();
+    @ExceptionHandler(BindException.class)
+    public R handlerBindException(BindException bindException){
+        BindingResult bindingResult = bindException.getBindingResult();
         if(bindingResult.hasErrors()){
             FieldError fieldError = bindingResult.getFieldError();
-            if(fieldError != null){
-                return R.fail(fieldError.getField() + fieldError.getDefaultMessage());
+            if(fieldError!=null){
+                return R.fail(fieldError.getField()+fieldError.getDefaultMessage()) ;
             }
         }
-        return R.fail(exception.getMessage());
+        return R.fail(bindException.getMessage()) ;
     }
 
 }

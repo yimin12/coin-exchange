@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinWithdrawMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinWithdraw">
+    <!--@mbg.generated-->
+    <!--@Table coin_withdraw-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="coin_type" jdbcType="VARCHAR" property="coinType" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="txid" jdbcType="VARCHAR" property="txid" />
+    <result column="num" jdbcType="DECIMAL" property="num" />
+    <result column="fee" jdbcType="DECIMAL" property="fee" />
+    <result column="mum" jdbcType="DECIMAL" property="mum" />
+    <result column="type" jdbcType="BOOLEAN" property="type" />
+    <result column="chain_fee" jdbcType="DECIMAL" property="chainFee" />
+    <result column="block_num" jdbcType="INTEGER" property="blockNum" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="wallet_mark" jdbcType="VARCHAR" property="walletMark" />
+    <result column="step" jdbcType="TINYINT" property="step" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, coin_name, coin_type, address, txid, num, fee, mum, `type`, 
+    chain_fee, block_num, remark, wallet_mark, step, `status`, audit_time, last_update_time, 
+    created
+  </sql>
+</mapper>

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
-
 /*
  *   @Author : Yimin Huang
  *   @Contact : hymlaucs@gmail.com
@@ -23,17 +23,19 @@ public class JacksonConfig {
 
     /**
      * 配置ObjectMapper
+     * @return
      */
     @Bean
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(Long.class, ToStringSerializer.instance);
         objectMapper.registerModule(simpleModule);
-        objectMapper.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai")); // Asia/Shanghai
+        objectMapper.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai")); //Asia/Shanghai
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+
         return objectMapper;
     }
 }

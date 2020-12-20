@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.User">
+    <!--@mbg.generated-->
+    <!--@Table `user`-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="paypassword" jdbcType="VARCHAR" property="paypassword" />
+    <result column="paypass_setting" jdbcType="BOOLEAN" property="paypassSetting" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="id_card_type" jdbcType="BOOLEAN" property="idCardType" />
+    <result column="auth_status" jdbcType="TINYINT" property="authStatus" />
+    <result column="ga_secret" jdbcType="VARCHAR" property="gaSecret" />
+    <result column="ga_status" jdbcType="BOOLEAN" property="gaStatus" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="authtime" jdbcType="TIMESTAMP" property="authtime" />
+    <result column="logins" jdbcType="INTEGER" property="logins" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="invite_code" jdbcType="VARCHAR" property="inviteCode" />
+    <result column="invite_relation" jdbcType="LONGVARCHAR" property="inviteRelation" />
+    <result column="direct_inviteid" jdbcType="VARCHAR" property="directInviteid" />
+    <result column="is_deductible" jdbcType="INTEGER" property="isDeductible" />
+    <result column="reviews_status" jdbcType="INTEGER" property="reviewsStatus" />
+    <result column="agent_note" jdbcType="LONGVARCHAR" property="agentNote" />
+    <result column="access_key_id" jdbcType="VARCHAR" property="accessKeyId" />
+    <result column="access_key_secret" jdbcType="VARCHAR" property="accessKeySecret" />
+    <result column="refe_auth_id" jdbcType="BIGINT" property="refeAuthId" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, username, country_code, mobile, `password`, paypassword, paypass_setting, 
+    email, real_name, id_card_type, auth_status, ga_secret, ga_status, id_card, `level`, 
+    authtime, logins, `status`, invite_code, invite_relation, direct_inviteid, is_deductible, 
+    reviews_status, agent_note, access_key_id, access_key_secret, refe_auth_id, last_update_time, 
+    created
+  </sql>
+</mapper>

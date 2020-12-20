@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.CoinRechargeMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.CoinRecharge">
+    <!--@mbg.generated-->
+    <!--@Table coin_recharge-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="coin_id" jdbcType="BIGINT" property="coinId" />
+    <result column="coin_name" jdbcType="VARCHAR" property="coinName" />
+    <result column="coin_type" jdbcType="VARCHAR" property="coinType" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="confirm" jdbcType="INTEGER" property="confirm" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="txid" jdbcType="VARCHAR" property="txid" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, coin_id, coin_name, coin_type, address, confirm, `status`, txid, amount, 
+    last_update_time, created
+  </sql>
+</mapper>

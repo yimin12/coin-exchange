@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.TurnoverOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.TurnoverOrder">
+    <!--@mbg.generated-->
+    <!--@Table turnover_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="market_id" jdbcType="BIGINT" property="marketId" />
+    <result column="market_type" jdbcType="INTEGER" property="marketType" />
+    <result column="trade_type" jdbcType="BOOLEAN" property="tradeType" />
+    <result column="symbol" jdbcType="VARCHAR" property="symbol" />
+    <result column="market_name" jdbcType="VARCHAR" property="marketName" />
+    <result column="sell_user_id" jdbcType="BIGINT" property="sellUserId" />
+    <result column="sell_coin_id" jdbcType="BIGINT" property="sellCoinId" />
+    <result column="sell_order_id" jdbcType="BIGINT" property="sellOrderId" />
+    <result column="sell_price" jdbcType="DECIMAL" property="sellPrice" />
+    <result column="sell_fee_rate" jdbcType="DECIMAL" property="sellFeeRate" />
+    <result column="sell_volume" jdbcType="DECIMAL" property="sellVolume" />
+    <result column="buy_user_id" jdbcType="BIGINT" property="buyUserId" />
+    <result column="buy_coin_id" jdbcType="BIGINT" property="buyCoinId" />
+    <result column="buy_order_id" jdbcType="BIGINT" property="buyOrderId" />
+    <result column="buy_volume" jdbcType="DECIMAL" property="buyVolume" />
+    <result column="buy_price" jdbcType="DECIMAL" property="buyPrice" />
+    <result column="buy_fee_rate" jdbcType="DECIMAL" property="buyFeeRate" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="volume" jdbcType="DECIMAL" property="volume" />
+    <result column="deal_sell_fee" jdbcType="DECIMAL" property="dealSellFee" />
+    <result column="deal_sell_fee_rate" jdbcType="DECIMAL" property="dealSellFeeRate" />
+    <result column="deal_buy_fee" jdbcType="DECIMAL" property="dealBuyFee" />
+    <result column="deal_buy_fee_rate" jdbcType="DECIMAL" property="dealBuyFeeRate" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, market_id, market_type, trade_type, symbol, market_name, sell_user_id, sell_coin_id, 
+    sell_order_id, sell_price, sell_fee_rate, sell_volume, buy_user_id, buy_coin_id, 
+    buy_order_id, buy_volume, buy_price, buy_fee_rate, order_id, amount, price, volume, 
+    deal_sell_fee, deal_sell_fee_rate, deal_buy_fee, deal_buy_fee_rate, `status`, last_update_time, 
+    created
+  </sql>
+</mapper>

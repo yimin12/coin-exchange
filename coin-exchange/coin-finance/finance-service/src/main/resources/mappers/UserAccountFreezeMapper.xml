@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.UserAccountFreezeMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.UserAccountFreeze">
+    <!--@mbg.generated-->
+    <!--@Table user_account_freeze-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="freeze" jdbcType="DECIMAL" property="freeze" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, `freeze`
+  </sql>
+</mapper>

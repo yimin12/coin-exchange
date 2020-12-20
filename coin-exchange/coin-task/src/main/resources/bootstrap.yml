@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: task-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: nacos-server:8848
+      config:
+        file-extension: yaml
+    stream:
+      bindings:
+        group_message_out: {destination: tio_group, content-type: application/plain, group: order-group, consumer.maxAttempts: 1}
+        exchange_trades_in: {destination: exchange_trades_out, content-type: application/plain, group: order-group}
+      rocketmq:
+        binder:
+          name-server: rocket-server:9876
+#    去 nacos-server里面拉取的文件名称为： task-service-dev.yaml

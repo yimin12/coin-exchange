@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimin.mapper.SysUserLogMapper">
+  <resultMap id="BaseResultMap" type="com.yimin.domain.SysUserLog">
+    <!--@mbg.generated-->
+    <!--@Table sys_user_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="group" jdbcType="VARCHAR" property="group" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="type" jdbcType="SMALLINT" property="type" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="params" jdbcType="LONGVARCHAR" property="params" />
+    <result column="time" jdbcType="BIGINT" property="time" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `group`, user_id, `type`, `method`, params, `time`, ip, description, remark, 
+    created
+  </sql>
+</mapper>

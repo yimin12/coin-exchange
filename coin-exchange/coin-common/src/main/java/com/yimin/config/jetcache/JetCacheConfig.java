@@ -3,7 +3,6 @@ package com.yimin.config.jetcache;
 import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 import com.alicp.jetcache.anno.config.EnableMethodCache;
 import org.springframework.context.annotation.Configuration;
-
 /*
  *   @Author : Yimin Huang
  *   @Contact : hymlaucs@gmail.com
@@ -15,4 +14,5 @@ import org.springframework.context.annotation.Configuration;
 @EnableCreateCacheAnnotation
 @EnableMethodCache(basePackages = "com.yimin.service.impl")
 public class JetCacheConfig {
+
 }

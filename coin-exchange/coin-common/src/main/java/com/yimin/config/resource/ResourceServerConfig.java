@@ -21,6 +21,7 @@ import org.springframework.util.FileCopyUtils;
  *   @Description :
  *
  */
+
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
@@ -28,7 +29,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().sessionManagement().disable().authorizeRequests()
+        http.csrf()
+                .disable()
+                .sessionManagement().disable()
+                .authorizeRequests()
                 .antMatchers(
                         "/users/setPassword" ,
                         "/users/register",
@@ -42,12 +46,20 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/webjars/**",
                         "/swagger-ui.html"
                 ).permitAll()
-                .antMatchers("/**").authenticated().and().headers().cacheControl();
+                .antMatchers("/**").authenticated()
+                .and().headers().cacheControl();
     }
 
+    /**
+     * 设置公钥
+     *
+     * @param resources
+     * @throws Exception
+     */
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources.tokenStore(jwtTokenStore());
+
     }
 
     private TokenStore jwtTokenStore() {
@@ -55,7 +67,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         return jwtTokenStore;
     }
 
-    public JwtAccessTokenConverter accessTokenConverter(){
+    @Bean // 放在ioc容器的
+    public JwtAccessTokenConverter accessTokenConverter() {
         //resource 验证token（公钥） authorization 产生 token （私钥）
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
         String s = null;
@@ -63,7 +76,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
             ClassPathResource classPathResource = new ClassPathResource("coinexchange.txt");
             byte[] bytes = FileCopyUtils.copyToByteArray(classPathResource.getInputStream());
             s = new String(bytes, "UTF-8");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         tokenConverter.setVerifierKey(s);

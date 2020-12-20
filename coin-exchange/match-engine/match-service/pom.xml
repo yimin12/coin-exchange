@@ -21,6 +21,24 @@
             <artifactId>coin-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--        disruptor 高速队列-->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+        </dependency>
+
+        <!--        cpu亲和锁-->
+        <dependency>
+            <groupId>net.openhft</groupId>
+            <artifactId>affinity</artifactId>
+            <version>${affinity.version}</version>
+        </dependency>
+
+        <!--        spring-cloud-stream-rocketmq-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rocketmq</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

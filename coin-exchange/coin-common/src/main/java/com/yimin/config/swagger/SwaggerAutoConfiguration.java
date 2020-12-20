@@ -29,7 +29,7 @@ public class SwaggerAutoConfiguration {
 
     private SwaggerProperties swaggerProperties;
 
-    public SwaggerAutoConfiguration(SwaggerProperties swaggerProperties){
+    public SwaggerAutoConfiguration(SwaggerProperties swaggerProperties) {
         this.swaggerProperties = swaggerProperties;
     }
 
@@ -47,9 +47,34 @@ public class SwaggerAutoConfiguration {
         return docket;
     }
 
+    /**
+     * api 信息的简介
+     *
+     * @return
+     */
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder().contact(
+                new Contact(swaggerProperties.getName(), swaggerProperties.getUrl(), swaggerProperties.getEmail())
+        )
+                .title(swaggerProperties.getTitle())
+                .description(swaggerProperties.getDescription())
+                .version(swaggerProperties.getVersion())
+                .termsOfServiceUrl(swaggerProperties.getTermsOfServiceUrl())
+                .build();
+    }
 
     /**
-     * 安全上下文环境
+     * 安全的规则配置
+     *
+     * @return
+     */
+    private List<SecurityScheme> securitySchemes() {
+        return Arrays.asList(new ApiKey("Authorization", "Authorization", "Authorization"));
+    }
+
+    /**
+     * 安全的上下问
+     *
      * @return
      */
     private List<SecurityContext> securityContexts() {
@@ -58,25 +83,5 @@ public class SwaggerAutoConfiguration {
                 PathSelectors.any()
         ));
     }
-
-    /**
-     * 安全规则的配置
-     * @return
-     */
-    private List<? extends SecurityScheme> securitySchemes() {
-        return Arrays.asList(new ApiKey("Authorization", "Authorization", "Authorization"));
-    }
-
-    /**
-     * api 的信息简介
-     * @return
-     */
-    private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().contact(
-                new Contact(swaggerProperties.getName(), swaggerProperties.getUrl(), swaggerProperties.getEmail())
-        ).title(swaggerProperties.getTitle()).description(swaggerProperties.getDescription()).version(swaggerProperties.getVersion())
-                .termsOfServiceUrl(swaggerProperties.getTermsOfServiceUrl()).build();
-    }
-
 
 }

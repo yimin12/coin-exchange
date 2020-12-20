@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: match-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: nacos-server:8848
+      config:
+        file-extension: yaml
+    stream:
+      rocketmq:
+        binder:
+          name-server: rocket-server:9876
+        binders:
+          order_in: {consumer.orderly: true}
+      bindings:
+        order_in: {destination: order_in, content-type: application/plain, group: order-group, consumer.maxAttempts: 1}
+        trade_plate_out: {destination: trade_plate_out, content-type: application/plain}
+        completed_orders_out: {destination: completed_orders_out, content-type: application/plain}
+        exchange_trades_out: {destination: exchange_trades_out, content-type: application/plain}
+        cancel_order_out: {destination: cancel_order_out, content-type: application/pla
+
+  #    去 nacos-server里面拉取的文件名称为： member-service-dev.yaml
+
+  match:
+    symbols:
+      BTCGNC:
+        coinScale: 8
+        baseCoinSacle: 8
+      ETHGCN:
+        coinScale: 8
+        baseCoinScale: 8
+      FOFTGCN:
+        coinScale: 8
+        baseCoinSacle: 8
